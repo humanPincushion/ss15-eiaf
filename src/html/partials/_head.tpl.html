@@ -18,17 +18,16 @@
   </head>
   <body>
     <div ng-controller="MixismCtrl as mixism">
-      <header class="app-header row collapse">
-        <div class="medium-6 large-4 columns">
-          <h1><a href="/home" ui-sref="home" class="app-logo">#mixism</a></h1>
-        </div>
-        <nav class="medium-6 large-8 columns">
-          <ul class="app-nav">
+      <header class="app-header">
+        <h1><a href="/home" ui-sref="home" class="app-logo">#mixism</a><span ng-cloak ng-show="title" class="playlist-title"> / <a href="/play" ng-bind="title"></a></span></h1>
+        <nav class="app-nav">
+          <ul>
             <li><a href="/home" ui-sref="home">Home</a></li>
             <li><a href="#!/play" ui-sref="play">Play</a></li>
             <li><a href="#!/play/#bass" ui-sref="play.filter({filter: '#bass'})">#bass</a></li>
             <li><a href="#!/play/@humanPincushion" ui-sref="play.filter({filter: '@humanPincushion'})">@humanPincushion</a></li>
+            <li><a href="#" ui-sref="play.info()">Track info</a></li>
+            <li><a href="/stuff" ui-sref="stuff">Stuff</a></li>
           </ul>
-          <p ng-bind="title"></p>
         </nav>
       </header>

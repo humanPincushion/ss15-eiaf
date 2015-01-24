@@ -1,7 +1,12 @@
 // ## general classes.
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 .ir {
   // image replacement.
-  display: inline-block;
+  display: none;
   overflow: hidden;
   text-indent: -100em;
 }
@@ -75,6 +80,7 @@ table {
 .app-header,
 .app-content,
 .app-footer {
+  width: 100%;
   min-width: 320px;
   max-width: none;
 }
@@ -83,8 +89,12 @@ table {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 100;
 
   h1 {
+    position: absolute;
+    left: 0;
+    top: 0;
     font-size: rem-calc(24);
     margin: rem-calc(7) rem-calc( 15 );
   }
@@ -101,6 +111,9 @@ table {
 }
 
 .app-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
   margin: rem-calc(7) rem-calc( 15 );
   text-align: right;
 }
@@ -110,6 +123,8 @@ table {
 }
 
 .page {
+  padding-bottom: rem-calc(100);
+
   .row {
     min-width: 0;
     max-width: none;
@@ -248,80 +263,486 @@ table {
   margin-bottom: rem-calc(32) !important;
 }
 
+.track {
+  padding: rem-calc(10);
+
+  .media-artwork {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    vertical-align: top;
+  }
+
+  .track-status {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background: fade-out( $white, 0.8 );
+    color: $primary-color;
+    line-height: 100%;
+    opacity: 0;
+    text-align: center;
+    vertical-align: middle;
+
+    transition: opacity 0.2s;
+  }
+
+  &:hover {
+    .track-status {
+      opacity: 1;
+    }
+  }
+
+  .track-artwork {
+    width: rem-calc(60);
+    height: rem-calc(60);
+    margin-right: rem-calc(10);
+  }
+
+  .media-icon {
+    display: inline-block;
+    margin-right: rem-calc(5);
+  }
+
+  .media-title {
+    overflow: hidden;
+    font-size: rem-calc(16);
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .media-author {
+    font-size: rem-calc(14);
+    font-weight: normal;
+  }
+
+  .media-src {
+    font-size: rem-calc(12);
+    font-weight: normal;
+  }
+
+  .track-info {
+    display: block;
+    width: rem-calc(50);
+    height: 100%;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    color: $grey;
+    line-height: rem-calc(50);
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+    }
+
+    &:active {
+      color: $secondary-color;
+    }
+  }
+}
+
+/* Desktop
+.player {
+  display: block;
+  width: 100%;
+  height: rem-calc(80);
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 120;
+
+  background: $white;
+  box-shadow: 0 0 rem-calc(100) fade-out( $black, 0.9 );
+
+  .player-progress {
+    width: 100%;
+    height: rem-calc(20);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &:hover {
+      .player-position,
+      .player-position-handle {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  .player-duration {
+    width: 100%;
+    height: rem-calc(6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+
+    background: $grey;
+  }
+
+  .player-position {
+    width: 50%;
+    height: rem-calc(6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+
+    background: $primary-color;
+  }
+
+  .player-position-handle {
+    width: rem-calc(20);
+    height: rem-calc(20);
+    margin: 0 0 0 rem-calc(-10);
+
+    position: absolute;
+    left: 50%;
+    top: rem-calc(-6);
+    z-index: 10;
+
+    background: $primary-color;
+    border: solid 3px $white;
+    border-radius: rem-calc(20);
+  }
+
+  .player-ctrls {
+    margin: 0 rem-calc(20);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 15;
+
+    font-size: rem-calc(40);
+    line-height: rem-calc(80);
+    vertical-align: middle;
+
+    a:link,
+    a:visited {
+      color: $grey;
+    }
+
+    a:hover,
+    a:focus {
+      color: $primary-color;
+    }
+
+    a:active {
+      color: $secondary-color;
+    }
+
+    .fa-play,
+    .fa-pause {
+      text-align: center;
+      width: rem-calc(80);
+    }
+
+    .fa-pause { display: none; }
+
+    .fa-step-backward,
+    .fa-step-forward {
+      font-size: rem-calc(24);
+      vertical-align: middle;
+    }
+  }
+
+  .track {
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    text-align: center;
+
+    .media-title {
+      font-size: rem-calc(16);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .media-author {
+      font-size: rem-calc(14);
+      margin: 0;
+    }
+
+    .media-src {
+      font-size: rem-calc(12);
+      margin: 0;
+    }
+  }
+
+  .track-artwork {
+    float: right;
+    //margin-right: rem-calc(20);
+  }
+}*/
+
+// Player - Mobile
+.player {
+  display: block;
+  width: 100%;
+  height: rem-calc(70);
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 120;
+
+  background: $white;
+  box-shadow: 0 0 rem-calc(100) fade-out( $black, 0.9 );
+
+  .player-progress {
+    width: 100%;
+    height: rem-calc(20);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &:hover {
+      .player-position,
+      .player-position-handle {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  .player-duration {
+    width: 100%;
+    height: rem-calc(6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+
+    background: $grey;
+  }
+
+  .player-position {
+    width: 50%;
+    height: rem-calc(6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+
+    background: $primary-color;
+  }
+
+  .player-position-handle {
+    width: rem-calc(20);
+    height: rem-calc(20);
+    margin: 0 0 0 rem-calc(-10);
+
+    position: absolute;
+    left: 50%;
+    top: rem-calc(-6);
+    z-index: 10;
+
+    background: $primary-color;
+    border: solid 3px $white;
+    border-radius: rem-calc(20);
+  }
+
+  .player-ctrls {
+    width: rem-calc(300);
+    margin-left: rem-calc(-150);
+
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 15;
+
+    font-size: rem-calc(30);
+    line-height: rem-calc(60);
+    vertical-align: middle;
+
+    a:link,
+    a:visited {
+      color: $grey;
+    }
+
+    a:hover,
+    a:focus {
+      color: $primary-color;
+    }
+
+    a:active {
+      color: $secondary-color;
+    }
+
+    .player-playpause {
+      display: inline-block;
+      text-align: center;
+      width: rem-calc(200);
+    }
+
+    .fa-pause { display: none; }
+
+    .player-backward,
+    .player-forward {
+      display: inline-block;
+      width: rem-calc(50);
+      font-size: rem-calc(24);
+      text-align: center;
+    }
+
+    .player-backward {
+      text-align: right;
+    }
+    .player-forward {
+      text-align: left;
+    }
+  }
+
+  .track {
+    width: 100%;
+    margin-top: rem-calc(8);
+
+    text-align: left;
+
+    .media-title {
+      font-size: rem-calc(16);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .media-author {
+      display: none;
+      font-size: rem-calc(14);
+      margin: 0;
+    }
+
+    .media-src {
+      font-size: rem-calc(12);
+      margin: 0;
+    }
+  }
+
+  .track-artwork {
+    width: rem-calc(40);
+    height: rem-calc(40);
+    float: left;
+  }
+
+  .track-info {
+    position: absolute;
+    right: 0;
+    top: rem-calc(10);
+    font-size: rem-calc(36);
+  }
+}
+
 .playlist {
   width: 320px;
   margin: 0 auto;
 
   .track {
     position: relative;
+    border-bottom: solid 1px $lgrey;
+  }
+
+  .track-artwork,
+  .media-author {
+    display: none;
+  }
+
+  .media-icon {
+    width: rem-calc(30);
+    text-align: right;
+  }
+
+  .track-summary {
+    margin-right: 50px;
+  }
+}
+
+.trackinfo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 110;
+  overflow: auto;
+
+  background: fade( $white, 80% );
+
+  .trackinfo-inner {
+    width: rem-calc(300);
+    margin: 0 auto;
+    background: $white;
+  }
+
+  .btn-close {
+    position: fixed;
+    right: rem-calc(10);
+    top: rem-calc(10);
+    font-size: rem-calc(64);
+    line-height: 0.8;
+  }
+
+  .track {
+    clear: both;
+    overflow: hidden;
+    border-bottom: solid 1px $lgrey;
 
     .track-artwork {
-      display: none;
-      width: rem-calc(60);
-      height: rem-calc(60);
-    }
-
-    .media-artwork {
       display: block;
-      width: 100%;
-      min-width: 100%;
-      max-width: 100%;
-      height: 100%;
-      min-height: 100%;
-      max-height: 100%;
-      vertical-align: top;
+      width: rem-calc(40);
+      height: rem-calc(40);
+      position: relative;
+      float: left;
     }
 
-    .track-status {
-      display: block;
-      width: 100%;
-      height: 100%;
-
-      position: absolute;
-      left: 0;
-      top: 0;
-
-      background: fade( $white, 80% );
-      color: $primary-color;
-      opacity: 0;
-
-      transition: opacity 0.2s;
+    .track-summary {
+      width: rem-calc(230);
+      float: left;
     }
+  }
 
-    &:hover {
-      .track-status {
-        opacity: 1;
-      }
-    }
+  .social {
 
-    .media-title {
-      height: 1.4em;
-      overflow: hidden;
+  }
+
+  .social-post {
+    border-bottom: solid 1px $lgrey;
+    padding: rem-calc(10);
+
+    .post-src {
       font-size: rem-calc(16);
-      font-weight: bold;
-      text-overflow: ellipsis;
+      margin: 0 0 rem-calc(10);
     }
 
-    .media-author {
-      display: none;
-      font-size: rem-calc(14);
-      font-weight: normal;
+    .post-content {
+      margin: rem-calc(10) 0;
     }
 
-    .media-src {
-      font-size: rem-calc(12);
-      font-weight: normal;
-    }
-
-    .track-info {
-      display: block;
-      width: rem-calc(50);
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      text-align: center;
-      line-height: rem-calc(50);
+    .media-icon {
+      display: inline-block;
+      margin-right: rem-calc(5);
     }
   }
 }

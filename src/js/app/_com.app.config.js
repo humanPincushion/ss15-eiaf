@@ -8,7 +8,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       url: '/',
       templateUrl: '/ng/home.tpl.html'
     })
-    .state('play', { 
+    .state('play', {
       url: '/play',
       controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
@@ -17,6 +17,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       url: '/:filter',
       controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
+    })
+    .state('stuff', {
+      url: '/stuff',
+      controller: 'PlaylistCtrl',
+      templateUrl: '/ng/stuff.tpl.html'
     });
 
   $urlRouterProvider.when('/home', '/');
@@ -25,5 +30,5 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
   $locationProvider
     .html5Mode(true)
     .hashPrefix('!');
-  
+
 }]);
