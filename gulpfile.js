@@ -76,6 +76,7 @@ gulp.task('app', function() {
  return gulp.src([
      'src/lib/ngstorage/ngStorage.js',
      'src/lib/codebird-js/codebird.js',
+     'src/lib/angular-audio/app/angular.audio.js',
      'src/js/**/*.js'
    ])
     .pipe(concat('com.app.js'))

@@ -10,7 +10,6 @@
 .vagrant
 *.sublime-project
 *.sublime-workspace
-.brackets.json
 composer.lock~
 node_modules
 logs

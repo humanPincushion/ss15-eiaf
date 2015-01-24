@@ -30,6 +30,11 @@ app.directive('mxTrack', ['mediaSvc', function(mediaSvc) {
         //console.log( domain );
         mediaSvc.getMeta( $scope.track.urls[0] ).then(function(media) { 
           $scope.media = media;
+          console.log('media');
+          mediaSvc.getMediaItem( $scope.track.urls[0] ).then(function(stuff) {
+            console.log( stuff );
+          });
+          
         });
       } else {
         $scope.media = false;

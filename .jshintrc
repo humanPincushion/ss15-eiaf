@@ -23,6 +23,7 @@
     "angular": true,
     "app": true,
     "$": true,
-    "Codebird": true
+    "Codebird": true,
+    "SC": true
   }
 }
