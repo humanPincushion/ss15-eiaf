@@ -91,8 +91,8 @@ $font-weight-normal: normal !default;
 $font-weight-bold: bold !default;
 
 // We use these as default colors throughout
-$primary-color: #008cba;
-$secondary-color: #e7e7e7;
+$primary-color: #639;
+$secondary-color: #666999;
 $alert-color: #f04124;
 $success-color: #43ac6a;
 $warning-color: #f08a24;
@@ -116,12 +116,12 @@ $charcoal    : #555;
 $tuatara     : #444;
 $oil         : #333;
 $jet         : #222;
-$black       : #000;
+$black       : #111;
 
 // We use these to control various global styles
 $body-bg: $white;
 $body-font-color: $jet;
-$body-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$body-font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
 $body-font-weight: $font-weight-normal;
 $body-font-style: normal;
 
@@ -193,7 +193,7 @@ $large: $large-up;
 $header-font-family: $body-font-family;
 $header-font-weight: $font-weight-normal;
 $header-font-style: normal;
-$header-font-color: $jet;
+$header-font-color: inherit;
 $header-line-height: 1.4;
 $header-top-margin: .2rem;
 $header-bottom-margin: .5rem;
@@ -217,14 +217,14 @@ $h6-font-size: 1rem;
 
 // These control how subheaders are styled.
 $subheader-line-height: 1.4;
-$subheader-font-color: scale-color($header-font-color, $lightness: 35%);
+$subheader-font-color: inherit; //;scale-color($header-font-color, $lightness: 35%);
 $subheader-font-weight: $font-weight-normal;
 $subheader-top-margin: .2rem;
 $subheader-bottom-margin: .5rem;
 
 // A general <small> styling
 $small-font-size: 60%;
-$small-font-color: scale-color($header-font-color, $lightness: 35%);
+$small-font-color: inherit; //scale-color($header-font-color, $lightness: 35%);
 
 // We use these to style paragraphs
 $paragraph-font-family: inherit;
@@ -252,6 +252,7 @@ $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $anchor-font-color: $primary-color;
 $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
+$anchor-font-color-active: $secondary-color;
 
 // We use these to style the <hr> element
 $hr-border-width: 1px;
@@ -274,11 +275,11 @@ $definition-list-header-margin-bottom: .3rem;
 $definition-list-margin-bottom: rem-calc(12);
 
 // We use these to style blockquotes
-$blockquote-font-color: scale-color($header-font-color, $lightness: 35%);
+$blockquote-font-color: inherit; //scale-color($header-font-color, $lightness: 35%);
 $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $gainsboro;
 $blockquote-cite-font-size: rem-calc(13);
-$blockquote-cite-font-color: scale-color($header-font-color, $lightness: 23%);
+$blockquote-cite-font-color: inherit; //scale-color($header-font-color, $lightness: 23%);
 $blockquote-cite-link-color: $blockquote-cite-font-color;
 
 // Acronym styles

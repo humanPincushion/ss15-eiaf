@@ -17,13 +17,13 @@
     <script src="js/lib/modernizr.min.js"></script>
   </head>
   <body>
-    <div class="page-wrap" ng-controller="MixismCtrl as mixism">
-      <header class="row">
+    <div ng-controller="MixismCtrl as mixism">
+      <header class="app-header row collapse">
         <div class="medium-6 large-4 columns">
-          <h1>#Mixism</h1>
+          <h1><a href="/home" ui-sref="home" class="app-logo">#mixism</a></h1>
         </div>
         <nav class="medium-6 large-8 columns">
-          <ul>
+          <ul class="app-nav">
             <li><a href="/home" ui-sref="home">Home</a></li>
             <li><a href="#!/play" ui-sref="play">Play</a></li>
             <li><a href="#!/play/#bass" ui-sref="play.filter({filter: '#bass'})">#bass</a></li>

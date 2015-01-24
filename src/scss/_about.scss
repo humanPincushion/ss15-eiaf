@@ -1,0 +1,25 @@
+.page-about {
+
+}
+
+#credits {
+  color: $grey;
+
+  a,
+  a:link,
+  a:visited {
+    color: $grey;
+    border-bottom: solid 1px $lgrey;
+  }
+
+  a:hover,
+  a:focus {
+    color: $dgrey;
+    border-color: $dgrey;
+  }
+
+  a:active {
+    color: $primary-color;
+    border-color: $primary-color;
+  }
+}
