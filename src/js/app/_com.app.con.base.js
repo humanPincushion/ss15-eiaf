@@ -9,5 +9,8 @@
  */
 
 app.controller('MixismCtrl', ['$scope', '$localStorage', function($scope, $localStorage) {
+  // includes main audio player controls.
   
+  $scope.filter = '';
+  $localStorage.playlist = [];
 }]);
