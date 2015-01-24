@@ -42,9 +42,10 @@ app.factory('mediaSvc', ['$http', '$q', function($http, $q) {
   }
   
   function getTrack(url) { 
-    var deferred = $q.defer();
+    var deferred = $q.defer(),
+        trackPath = url.replace( /https?:\/\/(www.)?soundcloud.com\/[^\/]+\//i, '' );
     
-    console.log('init');
+    console.log('init', url, trackPath);
     
     SC.initialize({
       client_id: '686201a1b89029bf9dd12f5159b269d6',
@@ -53,17 +54,19 @@ app.factory('mediaSvc', ['$http', '$q', function($http, $q) {
     
     console.log('auth');
 
-    // initiate auth popup
-    SC.connect(function() {
-      SC.get('/tracks', {
-        q: url,
-        filter: 'all',
-        order: 'hotness'
-      }, function (results) {
-        console.log( 'test', results );
-        deferred.resolve( results );
-      });
+    SC.stream( '/tracks/'+trackPath, function(sound) {
+      sound.play();
     });
+    
+    // initiate auth popup
+    /*SC.get('/tracks', {
+      q: trackPath,
+      filter: 'all',
+      order: 'hotness'
+    }, function (results) {
+      console.log( 'test', results );
+      deferred.resolve( results );
+      });*/
     
     return deferred.promise;
     
