@@ -18,7 +18,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', 'socialSvc', function($
   
   socialSvc.getFeed().then(function(response) {
       $localStorage.playlist = response;
-    
+      $scope.playlist = response;
       console.log( response );
     });
 }]);

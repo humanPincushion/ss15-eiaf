@@ -9,12 +9,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider' , functi
       templateUrl: '/ng/home.tpl.html'
     })
     .state('play', { 
-      controller: 'PlaylistCtrl',
-      template: '/ng/playlist.tpl.html'
+      url: '/play',
+      templateUrl: '/ng/playlist.tpl.html'
     })
     .state('play.filter', {
       url: '/:filter',
-      controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
     });
 
