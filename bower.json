@@ -1,0 +1,35 @@
+{
+  "name": "ss15-eiaf",
+  "version": "1.0.0",
+  "authors": [
+    "Viren Ratan <viren@viren.com.au>",
+    "Matt Scheurich <matt@lvl99.com>"
+  ],
+  "description": "Cool tunes, man!",
+  "main": "dist/index.html",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "src/lib"
+  ],
+  "dependencies": {
+    "ngDialog": "~0.3.0",
+    "placeholders": "~3.0.2",
+    "chosen": "~1.2.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.0",
+    "modernizr": "~2.8.2",
+    "foundation": "~5.4.3",
+    "angularjs": "1.2.26",
+    "angular-ui-router": "~0.2.11",
+    "angular-resource": "~1.3.0",
+    "angular-animate": "~1.3.0",
+    "angular-sanitize": "~1.3.0",
+    "angular-touch": "~1.3.0",
+    "ngstorage": "~0.3.0"
+  },
+  "resolutions": {
+    "jquery": "~2.1.0"
+  }
+}

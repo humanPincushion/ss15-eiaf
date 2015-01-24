@@ -1,0 +1,89 @@
+// ## general classes.
+.ir {
+  // image replacement.
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -100em;
+}
+
+// text alignment, shortcuts for .text-left etc.
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+
+.tc {
+  text-align: center;
+}
+
+a p {
+  color: $jet;
+}
+
+table {
+  width: 100%;
+}
+
+#skip a {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  font-size: rem-calc(14);
+  
+  &:focus { 
+    position: static; 
+    width: auto; 
+    height: auto; 
+  }
+}
+
+// buttons.
+.btn { 
+  display: inline-block;
+  padding: rem-calc(8 20);
+  background-color: $primary-color;
+  border: 0;
+  border-radius: $global-radius;
+  color: #fff;
+  font-size: rem-calc(14);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background .15s;
+  
+  &.btn-blue {
+    background-color: $primary-color;
+    
+    &:hover {
+      background: rgba($primary-color, .8);
+    }
+  }
+  
+  &.btn-green {
+    background-color: $green;
+    
+    &:hover {
+      background-color: rgba($green, .8);
+    }
+  }
+  
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  &.btn-clear { 
+    background-color: transparent;
+    color: $jet;
+    line-height: rem-calc(20);
+    
+    &:hover {
+      color: inherit;
+    }
+  }
+}
