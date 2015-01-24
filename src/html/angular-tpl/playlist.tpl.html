@@ -1,4 +1,5 @@
 <section class="playlist">
+  <div class="loading" ng-if="playlist.length == 0">loading...</div>
   <article ng-repeat="track in playlist">
     <img ng-src="{{track.user.avatar}}" class="media-artwork">
     <p class="media-title" ng-bind="track.text"></p>

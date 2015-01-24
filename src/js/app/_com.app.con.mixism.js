@@ -8,17 +8,19 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', 'socialSvc', function($scope, $localStorage, socialSvc) {
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', function($scope, $localStorage, $rootScope) {
   // includes main audio player controls.
   
-  $scope.filter = '';
+  $scope.playlist = [];
   $localStorage.playlist = [];
   
-  socialSvc.getFeed();
+  $scope.$watch('playlist', function() {
+    $localStorage.playlist = $scope.playlist;
+  });
   
-  socialSvc.getFeed().then(function(response) {
-      $localStorage.playlist = response;
-      $scope.playlist = response;
-      console.log( response );
-    });
+  // state params need to trigger a playlist update.
+  $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    $rootScope.$broadcast('filterChange', toParams.filter);
+  });
+  
 }]);

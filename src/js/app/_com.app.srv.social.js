@@ -65,10 +65,15 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
   }
   
   // retrieve data from web service.
-  function fetch(filter, username) {
+  function fetch(filter) {
     
     var deferred = $q.defer(),      // init promise.
         params = {q: '#mixism'};    // setup parameters.
+    
+    if( filter !== undefined )
+      params.q += ' AND ' + filter;
+    
+    console.log(params.q);
     
     // request results from webservice.
     cb.__call(
@@ -85,8 +90,8 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
   }
   
   return { 
-    getFeed: function() { 
-      return fetch(null, null);
+    getFeed: function(filter) { 
+      return fetch(filter);
     }
   };
 }]);

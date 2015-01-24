@@ -25,8 +25,9 @@
         <nav class="medium-6 large-8 columns">
           <ul>
             <li><a href="/home" ui-sref="home">Home</a></li>
-            <li><a href="/play" ui-sref="play">Play</a></li>
-            <li><a href="/play/test" ui-sref="play.filter">Test filter</a></li>
+            <li><a href="#!/play" ui-sref="play">Play</a></li>
+            <li><a href="#!/play/#bass" ui-sref="play.filter({filter: '#bass'})">#bass</a></li>
+            <li><a href="#!/play/@humanPincushion" ui-sref="play.filter({filter: '@humanPincushion'})">@humanPincushion</a></li>
           </ul>
         </nav>
       </header>

@@ -1,6 +1,6 @@
 'use strict';
 
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
   // routing
   $stateProvider
@@ -10,10 +10,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider' , functi
     })
     .state('play', { 
       url: '/play',
+      controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
     })
     .state('play.filter', {
       url: '/:filter',
+      controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
     });
 
