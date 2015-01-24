@@ -74,8 +74,9 @@ gulp.task('sass', function () {
 // compile javascript application.
 gulp.task('app', function() { 
  return gulp.src([
-    'src/lib/ngstorage/ngStorage.js',
-    'src/js/**/*.js'
+     'src/lib/ngstorage/ngStorage.js',
+     'src/lib/codebird-js/codebird.js',
+     'src/js/**/*.js'
    ])
     .pipe(concat('com.app.js'))
     //.pipe(browserify({

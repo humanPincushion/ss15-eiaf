@@ -1,7 +1,7 @@
 {
   "name": "ss15-eiaf",
   "version": "1.0.0",
-  "description": "Cool tunes, man!",
+  "description": "Social network playlist aggregator",
   "licence": "MIT",
   "author": {
     "name": "Viren Ratan",
