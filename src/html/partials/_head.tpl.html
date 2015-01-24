@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mixism</title>
+    <base href="/">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--[if lt IE 9]>
@@ -17,7 +18,15 @@
   </head>
   <body>
     <div class="page-wrap" ng-controller="MixismCtrl as mixism">
-      <header>
-        <h1>#Mixism</h1>
-        <nav></nav>
+      <header class="row">
+        <div class="medium-6 large-4 columns">
+          <h1>#Mixism</h1>
+        </div>
+        <nav class="medium-6 large-8 columns">
+          <ul class="nav">
+            <li><a href="/home" ui-sref="home">Home</a></li>
+            <li><a href="/play" ui-sref="play">Play</a></li>
+            <li><a href="/play/test" ui-sref="play.filter">Test filter</a></li>
+          </ul>
+        </nav>
       </header>

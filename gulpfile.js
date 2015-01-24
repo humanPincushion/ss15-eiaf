@@ -73,12 +73,15 @@ gulp.task('sass', function () {
 
 // compile javascript application.
 gulp.task('app', function() { 
- return gulp.src('src/js/**/*.js')
+ return gulp.src([
+    'src/lib/ngstorage/ngStorage.js',
+    'src/js/**/*.js'
+   ])
     .pipe(concat('com.app.js'))
-    .pipe(browserify({
-      insertGlobals: true
-    }))
-    .pipe(uglify())
+    //.pipe(browserify({
+      //insertGlobals: true
+    //}))
+    //.pipe(uglify())
     .pipe(gulp.dest('dist/js'))
     .pipe(connect.reload());
 });

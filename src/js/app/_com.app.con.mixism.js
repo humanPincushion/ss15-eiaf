@@ -4,7 +4,7 @@
  * @ngdoc function
  * @name app.controller:MixismCtrl
  * @description
- * # BaseCtrl
+ * # MixismCtrl
  * Root controller of the app
  */
 

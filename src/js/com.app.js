@@ -12,9 +12,6 @@
 
 var app = angular.module('app', [
   'ui.router',
-  'ngAnimate',
   'ngResource',
-  'ngSanitize',
-  'ngTouch',
   'ngStorage'
 ]);
