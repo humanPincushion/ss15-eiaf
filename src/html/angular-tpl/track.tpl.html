@@ -1,7 +1,13 @@
-<img ng-src="{{media.artwork}}" class="media-artwork">
-<p class="media-title" ng-bind="media.title"></p>
-<a ng-href="{{media.authorUrl}}" target="_blank"><span ng-bind="media.author"></span></a>
-<span class="media-src">
-  Posted by <a href="https://twitter.com/{{track.user.handle}}" target="_blank">@<span ng-bind="track.user.handle"></span></a>
-</span>
-<a ng-click="trackInfo(media)"><i class="ico ico-info ir">Track details</i></a>
+<div class="track-artwork">
+  <img ng-src="{{media.artwork}}" class="media-artwork">
+  <div class="track-status">
+    <i class="fa fa-play ir">Play</i>
+  </div>
+</div>
+<div class="track-summary">
+  <h1 class="media-title" ng-attr-title="media.title"><i class="fa fa-soundcloud" title="SoundCloud"></i><span ng-bind="media.title"></span> <a ng-click="trackInfo(media)" title="View track info"><i class="fa fa-info-circle ir">Track info</i></a></h1>
+  <h2 class="media-author" ng-attr-title="media.author"><a ng-href="{{media.authorUrl}}"><span ng-bind="media.author"></span></a></h2>
+  <h3 class="media-src">
+    <i class="fa fa-twitter" title="Twitter"></i>Posted by <a href="https://twitter.com/{{track.user.handle}}" target="_blank">@<span ng-bind="track.user.handle"></span></a>
+  </h3>
+</div>
