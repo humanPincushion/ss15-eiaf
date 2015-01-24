@@ -12,8 +12,26 @@
 
 app.factory('mediaSvc', ['$http', '$q', function($http, $q) { 
   
-  function getMetadata() {
+  function getMetadata( url ) { 
+    var deferred = $q.defer(),
+        params = {
+          url: url,
+          format: 'json'
+        };
     
+    $.ajax({
+      url: 'http://soundcloud.com/oembed',
+      data: params,
+      success: function (data, textStatus, xhr ) {
+        deferred.resolve(data);
+        console.log(data);
+      },
+      error: function (textStatus, err, xhr) {
+        deferred.reject( textStatus, err );
+      }
+    });
+    
+    return deferred.promise;
   }
   
   return { 
