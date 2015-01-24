@@ -17,10 +17,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       url: '/:filter',
       controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
-    })
-    .state('sc_callback', {
-      url: '/sc_callback',
-      templateUrl: '/ng/sc_callback.tpl.html'
     });
 
   $urlRouterProvider.when('/home', '/');
