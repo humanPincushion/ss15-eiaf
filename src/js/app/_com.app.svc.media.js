@@ -22,9 +22,15 @@ app.factory('mediaSvc', ['$http', '$q', function($http, $q) {
     $.ajax({
       url: 'http://soundcloud.com/oembed',
       data: params,
-      success: function (data, textStatus, xhr ) {
-        deferred.resolve(data);
-        console.log(data);
+      success: function (data, textStatus, xhr ) { 
+        var media = {
+          artist: data.author_name,
+          artistUrl: data.author_url,
+          name: data.title,
+          artwork: data.thumbnail_url,
+          source: data.provider_name
+        };
+        deferred.resolve(media);
       },
       error: function (textStatus, err, xhr) {
         deferred.reject( textStatus, err );
