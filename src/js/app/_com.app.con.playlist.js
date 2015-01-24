@@ -11,6 +11,7 @@
 app.controller('PlaylistCtrl', ['$scope', 'socialSvc', '$state', '$stateParams', '$rootScope', '$localStorage', function($scope, socialSvc, $state, $stateParams, $rootScope, $localStorage) {
   
   $scope.loading = true;
+  $localStorage.playlist = [];
   
   function updatePlaylist(filter) {
     $scope.loading = true;
