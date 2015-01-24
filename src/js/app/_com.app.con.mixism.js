@@ -13,6 +13,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
   
   $scope.playlist = [];
   $scope.currentPlaylist = [];
+  $scope.playlistTitle = 'playlist title';
   
   // state params need to trigger a playlist update.
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
