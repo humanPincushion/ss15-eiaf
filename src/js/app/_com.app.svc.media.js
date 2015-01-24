@@ -26,7 +26,7 @@ app.factory('mediaSvc', ['$http', '$q', function($http, $q) {
         var media = {
           artist: data.author_name,
           artistUrl: data.author_url,
-          name: data.title,
+          title: data.title,
           artwork: data.thumbnail_url,
           source: data.provider_name
         };

@@ -1,4 +1,7 @@
 <img ng-src="{{media.artwork}}" class="media-artwork">
-<p class="media-title" ng-bind="track.text"></p>
-<span class="artist-name" ng-bind="track.user.name"></span>
-<span class="media-src">Posted by @<span ng-bind="track.user.handle"></span></span>
+<p class="media-title" ng-bind="media.title"></p>
+<a ng-href="{{media.artistUrl}}" target="_blank"><span ng-bind="media.artist"></span></a>
+<span class="media-src">
+  Posted by <a href="https://twitter.com/{{track.user.handle}}" target="_blank">@<span ng-bind="track.user.handle"></span></a>
+</span>
+<a ng-click="trackInfo(media)"><i class="ico ico-info ir">Track details</i></a>
