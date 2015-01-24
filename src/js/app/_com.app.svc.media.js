@@ -48,11 +48,13 @@ app.factory('mediaSvc', ['$http', '$q', function($http, $q) {
     
     SC.initialize({
       client_id: '686201a1b89029bf9dd12f5159b269d6',
-      redirect_uri: '3ef092963351533db7810da79c50e804'
+      redirect_uri: 'http://development.ss15-eiaf.divshot.io/sc_callback.html'
     });
+    
+    console.log('auth');
 
     // initiate auth popup
-    SC.connect(function(url) {
+    SC.connect(function() {
       SC.get('/tracks', {
         q: url,
         filter: 'all',
