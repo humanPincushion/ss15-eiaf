@@ -73,7 +73,7 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
     if( filter !== undefined )
       params.q += ' AND ' + filter;
     
-    console.log(params.q);
+    //console.log(params.q);
     
     // request results from webservice.
     cb.__call(

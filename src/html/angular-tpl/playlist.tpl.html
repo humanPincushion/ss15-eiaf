@@ -1,6 +1,6 @@
 <section class="playlist">
-  <div class="loading" ng-if="playlist.length == 0">loading...</div>
-  <article ng-repeat="track in playlist">
+  <div class="loading" ng-if="loading">loading...</div>
+  <article ng-repeat="track in currentPlaylist">
     <img ng-src="{{track.user.avatar}}" class="media-artwork">
     <p class="media-title" ng-bind="track.text"></p>
     <span class="artist-name" ng-bind="track.user.name"></span>
