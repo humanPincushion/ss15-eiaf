@@ -17,14 +17,23 @@
                 <i class="fa fa-step-forward" title="List to next track: {Track name} - {Artist}"><span class="ir">Next Track</span></i>
               </div>
             </a>
-            <div class="track">
+            <div class="track ng-cloak" ng-show="currentTrack.media">
               <div class="track-artwork">
-                <img src="" class="media-artwork">
+                <img ng-src="{{currentTrack.media.artwork}}" class="media-artwork">
               </div>
               <div class="track-summary">
-                <h1 class="media-title"><i class="fa fa-soundcloud media-icon"></i><a href="#">Track name goes in here</a> <a href="#" class="track-info"><i class="fa fa-info-circle media-icon"></i></a></h1>
-                <h2 class="media-author"><a href="#">Artist name</a></h2>
-                <h3 class="media-src"><i class="fa fa-twitter"></i> Posted by <a href="#">@MattLVL99</a></h3>
+                <h1 class="media-title">
+                  <i class="fa fa-soundcloud media-icon"></i>
+                  <a href="#" ng-bind="currentTrack.media.title">Track name goes in here</a> 
+                  <a href="#" class="track-info"><i class="fa fa-info-circle media-icon"></i></a>
+                </h1>
+                <h2 class="media-author">
+                  <a href="#" ng-bind="currentTrack.media.author">Artist name</a>
+                </h2>
+                <h3 class="media-src">
+                  <i class="fa fa-twitter"></i> 
+                  Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle">@MattLVL99</a>
+                </h3>
               </div>
             </div>
           </div>

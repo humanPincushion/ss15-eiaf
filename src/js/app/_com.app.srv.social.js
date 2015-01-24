@@ -52,7 +52,7 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
             duplicate = true;
           
           urls.push( url.expanded_url );
-          console.log( url.expanded_url );
+          //console.log( url.expanded_url );
           tweetObj.urls.push( url.expanded_url );
         });
         

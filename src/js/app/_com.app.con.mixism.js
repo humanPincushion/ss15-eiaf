@@ -8,12 +8,13 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state', 'playerSvc', function($scope, $localStorage, $rootScope, $state, playerSvc) {
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state', 'playerSvc', 'mediaSvc', function($scope, $localStorage, $rootScope, $state, playerSvc, mediaSvc) {
   // includes main audio player controls.
   
   $scope.playlist = [];
   $scope.currentPlaylist = [];
   $scope.title = false;
+  $scope.currentTrack = [];
   
   function updatePlaylistTitle(filter) { 
     if(filter === undefined)
@@ -28,8 +29,17 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
     updatePlaylistTitle( toParams.filter );
   });
   
-  $scope.playTrack = function(trackUrl) {
-    playerSvc.playTrack(trackUrl);
+  $rootScope.$on('trackStarted', function() {
+    $scope.currentTrack = playerSvc.getCurrentTrack();
+    mediaSvc.getMeta( $scope.currentTrack.urls[0] ).then(function(media) {
+      $scope.currentTrack.media = media;
+      console.log( $scope.currentTrack );
+    });
+    
+  });
+  
+  $scope.playTrack = function(key) {
+    playerSvc.playTrack(key);
   };
   
 }]);

@@ -17,9 +17,12 @@
     <script src="js/lib/modernizr.min.js"></script>
   </head>
   <body>
-    <div ng-controller="MixismCtrl as mixism">
+    <div ng-controller="MixismCtrl">
       <header class="app-header">
-        <h1><a href="/home" ui-sref="home" class="app-logo">#mixism</a><span ng-cloak ng-show="title" class="playlist-title"> / <a href="/play" ng-bind="title"></a></span></h1>
+        <h1>
+          <a href="/home" ui-sref="home" class="app-logo">#mixism</a>
+          <span ng-cloak ng-show="title" class="playlist-title"> / <a href="/play" ng-bind="title"></a></span>
+        </h1>
         <nav class="app-nav">
           <ul>
             <li><a href="/home" ui-sref="home">Home</a></li>

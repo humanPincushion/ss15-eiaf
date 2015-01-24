@@ -8,24 +8,29 @@
  * Handles playlist navigation and deeper views.
  */
 
-app.controller('PlaylistCtrl', ['$scope', 'socialSvc', '$state', '$stateParams', '$rootScope', '$localStorage', function($scope, socialSvc, $state, $stateParams, $rootScope, $localStorage) {
+app.controller('PlaylistCtrl', ['$scope', 'socialSvc', 'playerSvc', '$state', '$rootScope', '$localStorage', function($scope, socialSvc, playerSvc, $state, $rootScope, $localStorage) {
   
   $scope.loading = true;
   $localStorage.playlist = [];
   
+  // fetch new playlist and update player service.
   function updatePlaylist(filter) {
     $scope.loading = true;
     $scope.$parent.currentPlaylist = $localStorage.playlist[ filter ];
-    socialSvc.getFeed(filter).then(function(response) {
-      $scope.$parent.playlist[ filter ] = response;
-      $scope.$parent.currentPlaylist = response;
+    socialSvc.getFeed(filter).then(function(currentPlaylist) {
+      $scope.$parent.playlist[ filter ] = currentPlaylist;
+      
+      // TODO: only change playlist when a track is played from outside of the current playlist.
+      $scope.$parent.currentPlaylist = currentPlaylist;
+      playerSvc.setPlaylist( currentPlaylist );
       $localStorage.playlist = $scope.playlist;
       $scope.loading = false;
     });
   }
   
   $rootScope.$on('filterChange', function(filter) {
-    updatePlaylist( $state.params.filter );
+    if( $state.current.name.indexOf('play') !== -1 )
+      updatePlaylist( $state.params.filter );
   });
   
   updatePlaylist( $state.params.filter );

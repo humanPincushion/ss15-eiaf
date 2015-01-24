@@ -1,3 +1,3 @@
-app.run(function() {
-  
-});
+app.run(['$rootScope', function($rootScope) {
+
+}]);

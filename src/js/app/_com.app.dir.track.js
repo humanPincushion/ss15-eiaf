@@ -24,20 +24,14 @@ app.directive('mxTrack', ['mediaSvc', 'playerSvc', function(mediaSvc, playerSvc)
           search = $scope.track.urls[0].match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i),
           domain = search && search[1];
 
-      //console.log( $.inArray( domain, allowedDomains ) );
-
+      // use the media service to lookup metadata based on soundcloud url.
       if( $.inArray( domain, allowedDomains ) !== -1 ) {
-        //console.log( $scope.track.urls[0] );
         mediaSvc.getMeta( $scope.track.urls[0] ).then(function(media) {
           $scope.media = media;
-          //console.log('media');
-          //playerSvc.playTrack( $scope.track.urls[0] );
-
         });
       } else {
         $scope.media = false;
       }
-
 
     }
   };
