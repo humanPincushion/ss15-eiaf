@@ -24,6 +24,7 @@
     "app": true,
     "$": true,
     "Codebird": true,
-    "SC": true
+    "SC": true,
+    "window": true
   }
 }

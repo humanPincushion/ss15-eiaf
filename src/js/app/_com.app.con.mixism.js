@@ -8,7 +8,7 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state', function($scope, $localStorage, $rootScope, $state) {
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state', 'playerSvc', function($scope, $localStorage, $rootScope, $state, playerSvc) {
   // includes main audio player controls.
   
   $scope.playlist = [];
@@ -18,5 +18,9 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
     $rootScope.$broadcast('filterChange', toParams.filter);
   });
+  
+  $scope.playTrack = function(trackUrl) {
+    playerSvc.playTrack(trackUrl);
+  };
   
 }]);

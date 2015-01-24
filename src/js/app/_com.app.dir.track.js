@@ -14,7 +14,7 @@
  * @return {Object} Configuration object for the directive.
  */
 
-app.directive('mxTrack', ['mediaSvc', function(mediaSvc) {
+app.directive('mxTrack', ['mediaSvc', 'playerSvc', function(mediaSvc, playerSvc) {
   return {
     restrict: 'EA',
     templateUrl: '/ng/track.tpl.html',
@@ -27,13 +27,11 @@ app.directive('mxTrack', ['mediaSvc', function(mediaSvc) {
       //console.log( $.inArray( domain, allowedDomains ) );
       
       if( $.inArray( domain, allowedDomains ) !== -1 ) { 
-        //console.log( domain );
+        //console.log( $scope.track.urls[0] );
         mediaSvc.getMeta( $scope.track.urls[0] ).then(function(media) { 
           $scope.media = media;
-          console.log('media');
-          mediaSvc.getMediaItem( $scope.track.urls[0] ).then(function(stuff) {
-            console.log( stuff );
-          });
+          //console.log('media');
+          playerSvc.playTrack( $scope.track.urls[0] );
           
         });
       } else {
