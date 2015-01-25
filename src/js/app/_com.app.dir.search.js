@@ -11,7 +11,7 @@
  * @return {Object} Configuration object for the directive.
  */
 
-app.directive('mxSearch', ['$state', '$rootScope', function($state, $rootScope) {
+app.directive('mxSearch', ['$state', function($state) {
   return {
     restrict: 'EA',
     templateUrl: '/ng/search.tpl.html',
@@ -19,13 +19,6 @@ app.directive('mxSearch', ['$state', '$rootScope', function($state, $rootScope) 
       filter: '=ngModel'
     },
     controller: function($scope) { 
-      
-      // watch for filter changes, and at the default playlist use a custom filter name.
-      $rootScope.$on('filterChange', function(filter) {
-        if( $state.current.name === 'play') {
-          $scope.filter = '#mixism';
-        }
-      });
       
       // hijack submission of search form.
       $scope.searchSubmit = function($event) {
@@ -39,13 +32,10 @@ app.directive('mxSearch', ['$state', '$rootScope', function($state, $rootScope) 
         
         filter = input.match(/[@#][a-z0-9_]+/i);
         
-        if( filter ) {
-          filterStr = filter[0];
-          $state.go('play.filter', {filter: filterStr});
-        } else {
-          $state.go('play');
-        }
+        if( filter ) 
+          filterStr = filter[0]; 
         
+        $state.go('play.filter', {filter: filterStr});
         return;
       };
       
