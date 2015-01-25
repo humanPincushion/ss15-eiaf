@@ -9,7 +9,8 @@
  */
 
 app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', 'socialSvc', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc, socialSvc) {
-  // includes main audio player controls.
+  
+  var playState = false;
   
   $scope.playlist = [];
   $scope.currentPlaylist = [];
@@ -40,6 +41,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     mediaSvc.getMeta( $scope.currentTrack.url ).then(function(media) {
       $scope.currentTrack.media = media;
       $scope.playerState = true;
+      playState = true;
     });
   });
   
@@ -79,9 +81,9 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $scope.togglePause = function($event) {
     $event.preventDefault();
     playerSvc.togglePause();
-    $scope.playerState = !$scope.playerState;
+    playState = !playState;
     
-    $scope.currentId = ( $scope.playerState ) ? playerSvc.getCurrentId() : 0 ;
+    $scope.currentId = ( playState ) ? playerSvc.getCurrentId() : 0 ;
   };
   
   // track info modal.
