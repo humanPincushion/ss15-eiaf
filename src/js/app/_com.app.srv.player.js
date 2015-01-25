@@ -113,6 +113,7 @@ app.factory('playerSvc', ['$rootScope', 'notify', function($rootScope, notify) {
                 templateUrl:'/ng/angular-notify.tpl.html'
               });
               $rootScope.$broadcast('trackError', true);
+              playNextTrack();
             }
           },
           onfinish: function() { 
