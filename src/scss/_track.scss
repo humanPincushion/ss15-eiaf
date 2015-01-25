@@ -48,13 +48,15 @@
     left: 0;
     top: 0;
 
-    background: fade-out( $white, 0.1 );
+    background: fade-out( $primary-color, 0.7 );
     border: solid rem-calc(3) $white;
     box-sizing: border-box;
-    color: $primary-color;
+    color: $white;
+    font-size: rem-calc(32);
     line-height: rem-calc(54);
     opacity: 0;
     text-align: center;
+    text-shadow: 0 0 rem-calc(20) $primary-color;
     vertical-align: middle;
 
     transition: opacity 0.2s;

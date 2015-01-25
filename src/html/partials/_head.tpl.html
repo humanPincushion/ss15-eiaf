@@ -16,7 +16,10 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/lib/modernizr.min.js"></script>
   </head>
-  <body ng-controller="MixismCtrl" ng-class="rootClass">
+  <body ng-controller="MixismCtrl" ng-class="{
+      'view-player': isPlayer,
+      'playlist-loaded': playerState
+    }">
     <header class="app-header">
       <h1 class="app-logo"><a href="/home" ui-sref="home" title="The social playlist!">#mixism</a></h1>
       <div class="app-search">

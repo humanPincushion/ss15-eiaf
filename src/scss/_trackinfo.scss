@@ -11,33 +11,51 @@
   left: 0;
   top: rem-calc(64);
   z-index: 110;
-  overflow: auto;
 
   .trackinfo-inner {
+    @media #{$small-only} {
+      height: calc(100% - 64px);
+    }
+    @media #{$medium-only} {
+      height: calc(100% - 64px);
+    }
+    @media #{$large-up} {
+      height: calc(100% - 64px);
+    }
     padding: 0;
     position: relative;
-    background: $white;
+    background-color: $white;
     border-bottom: solid 1px $lgrey;
+    overflow: auto;
   }
 
   .btn-close {
+    width: rem-calc(44);
+    height: rem-calc(44);
     margin: 0 rem-calc(5);
 
-    position: absolute;
-    right: rem-calc(15);
-    top: rem-calc(10);
+    position: fixed;
+    right: rem-calc(5);
+    top: rem-calc(74);
+    z-index: 14000;
 
+    background-color: fade-out( $white, 1 );
+    border-radius: 9999px;
     color: $dgrey;
-    font-size: rem-calc(46);
-    line-height: 0.8;
+    font-size: rem-calc(32);
+    line-height: rem-calc(44);
+    text-align: center;
+    vertical-align: middle;
 
     &:hover,
     &:focus {
-      color: $primary-color;
+      color: $white;
+      background-color: $black;
     }
 
     &:active {
       color: $black;
+      background-color: $primary-color;
     }
   }
 
@@ -60,13 +78,16 @@
 
     .track-artwork {
       display: block;
-      @include widthHeight( rem-calc(280), rem-calc(280) );
+      @include widthHeight( rem-calc(282), rem-calc(282) );
       padding: 0;
       margin: 2em auto 1em;
+
       position: relative;
       clear: both;
-      box-shadow: 0 0 rem-calc(30) fade-out( $black, 0.9 );
       float: none;
+
+      border: solid rem-calc(1) $lgrey;
+      box-shadow: 0 0 rem-calc(30) fade-out( $black, 0.9 );
       text-align: center;
 
       &:hover {
@@ -83,6 +104,7 @@
     .track-status {
       line-height: rem-calc(280);
       font-size: rem-calc(64);
+      text-shadow: 0 0 rem-calc(60) $primary-color;
     }
 
     .track-summary {
@@ -104,7 +126,7 @@
     .track-src,
     .media-author,
     .media-src {
-      font-size: rem-calc(18);
+      font-size: rem-calc(16);
       line-height: 1em;
     }
 
@@ -131,14 +153,16 @@
     min-width: rem-calc(300);
     max-width: rem-calc(500);
     margin: 1em auto;
+    background-color: $white;
   }
 
   .social-post {
-    padding: rem-calc(10);
+    padding: rem-calc(10) rem-calc(15);
 
     .post-src {
       font-size: rem-calc(16);
       margin: 0 0 rem-calc(10);
+      text-align: center;
     }
 
     .post-content {
@@ -156,6 +180,20 @@
       width: auto;
       margin-right: 0;
       font-size: rem-calc(21);
+    }
+  }
+}
+
+body.playlist-loaded {
+  .trackinfo .trackinfo-inner {
+    @media #{$small-only} {
+      height: calc(100% - 140px - 64px);
+    }
+    @media #{$medium-only} {
+      height: calc(100% - 140px - 64px);
+    }
+    @media #{$large-up} {
+      height: calc(100% - 70px - 64px);
     }
   }
 }

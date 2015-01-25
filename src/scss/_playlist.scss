@@ -12,6 +12,7 @@
     position: relative;
     background: $white;
     overflow: hidden;
+    cursor: pointer;
     border-bottom: solid rem-calc(1) $lgrey;
 
     transition: max-height 0.3s linear;

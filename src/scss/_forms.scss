@@ -110,8 +110,20 @@ input {
     input:focus,
     input:active {
       @include placeholder {
-        &::after {
-          content: ' by #hashtag or @username';
+        @media #{$small-only} {
+          &::after {
+            content: ' #hashtag or @username';
+          }
+        }
+        @media #{$medium-only} {
+          &::after {
+            content: ' by #hashtag or @username';
+          }
+        }
+        @media #{$large-up} {
+          &::after {
+            content: ' for music by #hashtag or @username';
+          }
         }
       }
     }

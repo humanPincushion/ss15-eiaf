@@ -92,7 +92,7 @@ $font-weight-bold: bold !default;
 
 // We use these as default colors throughout
 $primary-color: #639;
-$secondary-color: #666999;
+$secondary-color: lighten( $primary-color, 20% );
 $alert-color: #f04124;
 $success-color: #43ac6a;
 $warning-color: #f08a24;
