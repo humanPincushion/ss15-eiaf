@@ -59,7 +59,7 @@
 
   // Block - Full Height
   &.block-fullheight {
-    height: 70vh;
+    height: calc( 100% - 64px );
     min-height: 400px;
     display: flex;
     justify-content: center;
