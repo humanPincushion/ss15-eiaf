@@ -1,5 +1,15 @@
 .page-about {
 
+  .block-hero {
+    .hangloose,
+    .hangloose-black {
+      width: rem-calc(200);
+      height: rem-calc(100);
+      line-height: rem-calc(100);
+      background-size: contain;
+    }
+  }
+
   .supported {
     margin-left: auto;
     margin-right: auto;

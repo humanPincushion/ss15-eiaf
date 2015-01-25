@@ -205,6 +205,14 @@ table {
   line-height: rem-calc(35);
 }
 
+.hangloose-black {
+  display: inline-block;
+  width: rem-calc(58);
+  height: rem-calc(35);
+  background: transparent url('/img/hangloose-black.svg') no-repeat center center;
+  line-height: rem-calc(35);
+}
+
 .loading-hangloose {
   display: inline-block;
   width: rem-calc(72);
@@ -212,4 +220,6 @@ table {
   background-image: url('/img/anim-loading-72x48.gif');
   background-repeat: no-repeat;
   background-position: center center;
+  text-align: left;
+  text-indent: -1000em;
 }
