@@ -113,12 +113,44 @@ table {
 }
 
 .app-menu {
-  .fa-bars {
-    display: inline-block;
-    width: rem-calc(50);
-    height: rem-calc(50);
-    font-size: rem-calc(24);
-    line-height: rem-calc(50);
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  .icon-bars {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    div {
+      display: block;
+      width: rem-calc(24);
+      height: rem-calc(3);
+      margin: 0 auto rem-calc(3);
+
+      &:first-child {
+        margin-top: rem-calc(3);
+      }
+    }
+  }
+
+  .dropdown {
+    margin: rem-calc(20);
+  }
+
+  .dropdown-toggle {
+    display: block;
+    width: rem-calc(32);
+    height: rem-calc(32);
+  }
+
+  .dropdown-menu {
+    margin-top: rem-calc(32);
+    left: auto;
+    right: 0;
+    float: right;
   }
 }
 
