@@ -2,77 +2,69 @@
 
 .dropdown {
   position: relative;
+}
 
+.dropdown-toggle {
+  background: transparent;
+  color: $black;
+}
+
+.dropdown-menu {
+  //display: none;
+  min-width: rem-calc(200);
+  max-width: rem-calc(300);
+  margin-top: rem-calc(32);
+  padding: rem-calc(6) 0;
+  float: left;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background: $white;
+  border: solid rem-calc(1) $lgrey;
+  text-align: left;
+
+  ul,
+  li {
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  label {
+    display: block;
+    padding: rem-calc(3) 0;
+    color: $grey;
+    line-height: 1.2rem;
+  }
+
+  a {
+    display: block;
+    padding: rem-calc(6) rem-calc(10);
+    line-height: 1.2rem;
+
+    &:hover,
+    &:focus {
+      background: lighten( $lgrey, 15% );
+    }
+  }
+
+  .divider {
+    height: rem-calc(1);
+    margin: rem-calc(5) 0;
+    background: $lgrey;
+  }
+}
+
+.dropdown-open {
   .dropdown-toggle {
-    background: transparent;
-    color: $black;
+    background: $primary-color;
+    color: $white;
   }
 
   .dropdown-menu {
-    //display: none;
-    min-width: rem-calc(300);
-    max-width: rem-calc(300);
-    margin-top: rem-calc(32);
-    padding: 0;
-    float: left;
-
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    background: $white;
-    border: solid rem-calc(1) $lgrey;
-    text-align: left;
-
-    ul,
-    li {
-      display: block;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    li:first-child a {
-      padding-top: rem-calc(15);
-    }
-
-    li:last-child a {
-      padding-bottom: rem-calc(15);
-    }
-
-    label {
-      display: block;
-      padding: rem-calc(3) 0;
-      color: $grey;
-      line-height: 1.2rem;
-    }
-
-    a {
-      display: block;
-      padding: rem-calc(5) rem-calc(10);
-      line-height: 1.2rem;
-
-      &:hover,
-      &:focus {
-        background: lighten( $lgrey, 15% );
-      }
-    }
-
-    .divider {
-      height: rem-calc(1);
-      margin: rem-calc(5) 0;
-      background: $lgrey;
-    }
-  }
-
-  .dropdown-open {
-    .dropdown-toggle {
-      background: $primary-color;
-      color: $white;
-    }
-
-    .dropdown-menu {
-      display: block;
-    }
+    display: block;
   }
 }
