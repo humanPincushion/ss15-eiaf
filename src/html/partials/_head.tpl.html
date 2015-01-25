@@ -20,12 +20,20 @@
     <div ng-controller="MixismCtrl">
       <header class="app-header">
         <h1>
-          <a href="/home" ui-sref="home" class="app-logo">#mixism</a>
-          <span ng-cloak ng-show="title" class="playlist-title"> / <a href="/play" ng-bind="title"></a></span>
+          <a href="/home" ui-sref="home" class="app-logo" title="The social playlist!">#mixism</a>
+          <div class="app-search">
+            <form class="form-single-input form-search" action="/explore">
+              <form class="form-single-input form-search" action="/explore" method="get">
+              <input type="text" name="q" value="" placeholder="Explore">
+              <button class="button"><i class="fa fa-search"><span class="ir">Search</span></i></button>
+            </form>
+              <!--<span ng-cloak ng-show="title" class="playlist-title"> / <a href="/play" ng-bind="title"></a></span>-->
+          </div>
         </h1>
         <nav class="app-nav">
           <ul>
-            <li><a href="/home" ui-sref="home">Home</a></li>
+            <li><a href="/home" ui-sref="home">About</a></li>
+            <li><a href="/explore" ui-sref="explore">Explore</a></li>
             <li><a href="#!/play" ui-sref="play">Play</a></li>
             <li><a href="#!/play/#bass" ui-sref="play.filter({filter: '#bass'})">#bass</a></li>
             <li><a href="#!/play/@humanPincushion" ui-sref="play.filter({filter: '@humanPincushion'})">@humanPincushion</a></li>
