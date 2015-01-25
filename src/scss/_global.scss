@@ -203,6 +203,8 @@ html, body {
   height: rem-calc(35);
   background: transparent url('/img/hangloose-grey.svg') no-repeat center center;
   line-height: rem-calc(35);
+
+  animation: hangloose-bro 2s linear 0 infinite;
 }
 
 .hangloose-black {
@@ -211,12 +213,14 @@ html, body {
   height: rem-calc(35);
   background: transparent url('/img/hangloose-black.svg') no-repeat center center;
   line-height: rem-calc(35);
+
+  animation: hangloose-bro 2s linear 0 infinite;
 }
 
 .loading {
   display: flex;
-  align-items: middle;
-  justify-items: center;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 90vh;
   text-align: center;
@@ -225,11 +229,13 @@ html, body {
 
 .loading-hangloose {
   display: block;
-  width: rem-calc(72);
-  height: rem-calc(48);
-  background-image: url('/img/anim-loading-72x48.gif');
+  width: rem-calc(58);
+  height: rem-calc(35);
+  background-image: url('/img/hangloose-grey.svg');
   background-repeat: no-repeat;
   background-position: center center;
   text-align: left;
   text-indent: -1000em;
+
+  animation: hangloose-bro 2s linear 0 infinite;
 }

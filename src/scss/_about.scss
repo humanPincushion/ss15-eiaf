@@ -7,6 +7,8 @@
       height: rem-calc(100);
       line-height: rem-calc(100);
       background-size: contain;
+
+      animation: hangloose-bro 2s linear 0 infinite;
     }
   }
 
@@ -68,6 +70,14 @@
   a:active {
     color: $primary-color;
     border-color: $primary-color;
+  }
+
+  p {
+    font-size: rem-calc(18);
+  }
+
+  .hangloose {
+    margin-top: rem-calc(60);
   }
 }
 

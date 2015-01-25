@@ -116,6 +116,7 @@
     background: $primary-color;
 
     transition: height 0.2s;
+    will-change: width;
   }
 
   .player-position-handle {

@@ -1,0 +1,17 @@
+@keyframes hangloose-bro {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  20% {
+    transform: rotateZ(-15deg);
+  }
+  40% {
+    transform: rotateZ(0deg);
+  }
+  80% {
+    transform: rotateZ(15deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
