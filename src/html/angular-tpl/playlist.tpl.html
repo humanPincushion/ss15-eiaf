@@ -2,7 +2,7 @@
   <div class="loading" ng-if="loading">
     <i class="fa fa-angellist peace-out-dude"><span class="ir"></span></i>
   </div>
-  <div mx-no-results ng-show="!loading && currentPlaylist | objLen"></div>
+  <div mx-no-results ng-if="!loading" ng-hide="currentPlaylist | objLen"></div>
   <div class="track-list">
     <article mx-track class="track" ng-class="{'now-playing': (currentId == key)}" ng-repeat="(key, track) in currentPlaylist track by $index" ng-show="media" ng-click="playTrack(key)"></article>
   </div>
