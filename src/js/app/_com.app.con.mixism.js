@@ -59,7 +59,6 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
     $rootScope.$broadcast('filterChange', toParams.filter);
     updatePlaylistTitle( toParams.filter );
-    console.log('state change');
   });
   
   // when a track is playing, update the player UI.
@@ -120,7 +119,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   
   // track info modal.
   $scope.trackInfo = function($event, track, media) { 
-    $event.preventDefault();
+    $event.stopPropagation();
     
     $scope.modal = {
       track: track,
