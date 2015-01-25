@@ -27,7 +27,6 @@ app.controller('PlaylistCtrl', ['$scope', 'socialSvc', 'playerSvc', '$state', '$
       // TODO: only change playlist when a track is played from outside of the current playlist.
       if( firstRun ) {
         playerSvc.setPlaylist( currentPlaylist, filter );
-        playerSvc.playFirstTrack();
         firstRun = false;
       }
       

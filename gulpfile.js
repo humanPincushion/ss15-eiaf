@@ -62,7 +62,10 @@ gulp.task('html', function() {
 
 // compile stylesheet.
 gulp.task('sass', function () {
- return gulp.src('src/scss/**/*.scss')
+ return gulp.src([
+      'src/scss/lib/*.scss',
+      'src/scss/**/*.scss'
+    ])
     .pipe(sass())
     .pipe(concat('style.css'))
     .pipe(prefix('last 2 versions', '> 1%'))
@@ -77,6 +80,7 @@ gulp.task('app', function() {
      'src/lib/ngstorage/ngStorage.js',
      'src/lib/codebird-js/codebird.js',
      'src/lib/angular-audio/app/angular.audio.js',
+     'src/lib/ngDialog/js/ngDialog.js',
      'src/js/**/*.js'
    ])
     .pipe(concat('com.app.js'))
@@ -138,6 +142,13 @@ gulp.task('copy', function() {
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('dist/js/lib'));
+  
+  gulp.src([
+      'src/lib/ngDialog/css/ngDialog.css', 
+      'src/lib/ngDialog/css/ngDialog-theme-plain.css'
+    ])
+    .pipe(rename({prefix: '_', extname: '.scss'}))
+    .pipe(gulp.dest('src/scss/lib'));
 });
 
 /*

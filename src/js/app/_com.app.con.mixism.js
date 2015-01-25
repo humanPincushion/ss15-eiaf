@@ -84,4 +84,17 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     $scope.currentId = ( $scope.playerState ) ? playerSvc.getCurrentId() : 0 ;
   };
   
+  // track info modal.
+  /*
+  $scope.moreInfo = function () {
+    ngDialog.open({
+      templateUrl: '/ng/trackinfo.tpl.html',
+      controller: 'SendFriendCtrl',
+      scope: $scope,
+      className: 'ngdialog-theme-default ngdialog-theme-mixism',
+      preCloseCallback: function() { }
+    });
+  };
+  */
+  
 }]);
