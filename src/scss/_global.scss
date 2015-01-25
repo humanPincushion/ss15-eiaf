@@ -93,7 +93,7 @@ html, body {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 11000;
 }
 
 .app-logo {
@@ -130,7 +130,7 @@ html, body {
     display: block;
     width: 100%;
     height: 100%;
-    padding: rem-calc(9) 0;
+    padding: rem-calc(15) 0;
     margin: 0;
 
     div {
@@ -139,7 +139,7 @@ html, body {
       height: rem-calc(3);
       margin: rem-calc(3) auto;
 
-      background: $black;
+      background: $dgrey;
 
       transition: background-color 0.2s;
 
@@ -153,7 +153,14 @@ html, body {
     }
 
     &:hover,
-    &:focus,
+    &:focus {
+      background: $black;
+
+      div {
+        background-color: $white;
+      }
+    }
+
     &:active {
       background: $primary-color;
 
@@ -164,17 +171,17 @@ html, body {
   }
 
   .dropdown {
-    margin: rem-calc(16) rem-calc(16);
+    margin: rem-calc(10);
   }
 
   .dropdown-toggle {
     display: block;
-    width: rem-calc(32);
-    height: rem-calc(32);
+    width: rem-calc(44);
+    height: rem-calc(44);
   }
 
   .dropdown-menu {
-    margin-top: rem-calc(32);
+    margin-top: rem-calc(44);
     left: auto;
     right: 0;
     float: right;

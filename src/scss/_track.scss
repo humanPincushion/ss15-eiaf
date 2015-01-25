@@ -7,7 +7,12 @@
     max-width: none;
   }
 
-  &:hover {
+  // Error
+  .row.error {
+    opacity: 0.2;
+  }
+
+  .track-artwork:hover {
     .track-status {
       opacity: 1;
     }
@@ -15,7 +20,7 @@
 
   &.now-playing {
     .track-status {
-      background-color: fade-out( $white, 1 );
+      background-color: fade-out( $black, 0.5 );
       opacity: 1;
     }
   }

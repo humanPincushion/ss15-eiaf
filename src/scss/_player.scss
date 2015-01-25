@@ -37,9 +37,10 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 120;
+  z-index: 12000;
 
   background: fade-out( $white, 0.05 );
+  border-top: solid 1px $lgrey;
   box-shadow: 0 0 rem-calc(100) fade-out( $black, 0.9 );
 
   transition: height 0.2s;
@@ -50,8 +51,7 @@
     max-width: none;
   }
 
-  &.playlist-loaded,
-  &.track-initialised {
+  &.playlist-loaded {
     height: rem-calc(140);
 
     .player-position,
@@ -70,16 +70,6 @@
       background-repeat: repeat-x;
       background-position: left top;
       opacity: 0.5;
-    }
-
-    .player-ctrls {
-      &:link,
-      &:active,
-      &:hover,
-      &:focus,
-      &:active {
-        color: $grey;
-      }
     }
 
     .track-artwork,
@@ -149,7 +139,6 @@
     position: absolute;
     left: 0;
     top: 0;
-    background: fade-out( $white, 0.1 );
     line-height: rem-calc(40);
     text-align: center;
     vertical-align: middle;

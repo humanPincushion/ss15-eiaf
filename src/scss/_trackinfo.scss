@@ -1,33 +1,51 @@
+.ngdialog-theme-mixism {
+  .ngdialog-close {
+    display: none;
+  }
+}
+
 .trackinfo {
   width: 100%;
   height: 100%;
   position: fixed;
   left: 0;
-  top: 0;
+  top: rem-calc(64);
   z-index: 110;
   overflow: auto;
 
-  background: fade-out( $white, 0.8 );
-
   .trackinfo-inner {
-    padding: rem-calc(120) 0;
+    padding: 0;
     position: relative;
     background: $white;
+    border-bottom: solid 1px $lgrey;
   }
 
   .btn-close {
-    position: fixed;
-    right: rem-calc(10);
+    margin: 0 rem-calc(5);
+
+    position: absolute;
+    right: rem-calc(15);
     top: rem-calc(10);
-    font-size: rem-calc(64);
+
+    color: $dgrey;
+    font-size: rem-calc(46);
     line-height: 0.8;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+    }
+
+    &:active {
+      color: $black;
+    }
   }
 
   .trackinfo-fixed {
     width: 100%;
     min-width: 0;
     max-width: none;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
   }
@@ -42,29 +60,80 @@
 
     .track-artwork {
       display: block;
-      width: rem-calc(40);
-      height: rem-calc(40);
+      @include widthHeight( rem-calc(280), rem-calc(280) );
+      padding: 0;
+      margin: 2em auto 1em;
       position: relative;
-      float: left;
-      line-height: rem-calc(40);
+      clear: both;
+      box-shadow: 0 0 rem-calc(30) fade-out( $black, 0.9 );
+      float: none;
+      text-align: center;
+
+      &:hover {
+        box-shadow: 0 0 rem-calc(30) fade-out( $black, 0.8 );
+      }
+    }
+
+    .media-artwork {
+      display: inline-block;
+      @include widthHeight( rem-calc(280), rem-calc(280) );
+      vertical-align: top;
     }
 
     .track-status {
-      line-height: rem-calc(40);
+      line-height: rem-calc(280);
+      font-size: rem-calc(64);
     }
 
     .track-summary {
-      width: rem-calc(230);
-      float: left;
+      padding: 0;
+      margin-bottom: 2em;
+      clear: both;
+      text-align: center;
+    }
+
+    .media-title {
+      height: auto;
+      margin-left: rem-calc(50);
+      margin-right: rem-calc(50);
+      font-size: rem-calc(21);
+      line-height: 1.2em;
+      white-space: normal;
+    }
+
+    .track-src,
+    .media-author,
+    .media-src {
+      font-size: rem-calc(18);
+      line-height: 1em;
+    }
+
+    .track-src {
+      color: $lgrey;
+
+      a:link,
+      a:visited {
+        color: $grey;
+      }
+
+      a:hover,
+      a:focus {
+        color: $primary-color;
+      }
+
+      a:active {
+        color: $black;
+      }
     }
   }
 
   .social {
-
+    min-width: rem-calc(300);
+    max-width: rem-calc(500);
+    margin: 1em auto;
   }
 
   .social-post {
-    border-bottom: solid rem-calc(1) $lgrey;
     padding: rem-calc(10);
 
     .post-src {
@@ -76,9 +145,17 @@
       margin: rem-calc(10) 0;
     }
 
+    .post-time {
+      color: $grey;
+      font-size: rem-calc(16);
+      font-weight: normal;
+    }
+
     .media-icon {
       display: inline-block;
-      margin-right: rem-calc(5);
+      width: auto;
+      margin-right: 0;
+      font-size: rem-calc(21);
     }
   }
 }

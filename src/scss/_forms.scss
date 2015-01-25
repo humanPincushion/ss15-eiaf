@@ -138,6 +138,19 @@ input {
   }
 }
 
+.app-search {
+  .form-search,
+  .form-single-input {
+    @media #{$medium-up} {
+      width: rem-calc(400);
+    }
+
+    @media #{$large-up} {
+      width: rem-calc(500);
+    }
+  }
+}
+
 .no-touch .app-search .form-search {
   background-color: fade-out( $white, 1 );
   border-color: fade-out( $black, 1 );

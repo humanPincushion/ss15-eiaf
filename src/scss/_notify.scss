@@ -1,0 +1,27 @@
+.cg-notify-message {
+  padding: rem-calc(15);
+
+  position: fixed;
+  left: 50%;
+  top: rem-calc(64);
+  z-index: 15000;
+
+  background-color: $primary-color;
+  color: $white;
+  border: 0;
+  border-radius: 0;
+}
+
+.cg-notify-close {
+  top: rem-calc(10);
+  right: rem-calc(10);
+  color: $white;
+  text-shadow: none;
+  opacity: 0.5;
+  filter: none;
+
+  &:hover {
+    color: $white;
+    opacity: 1;
+  }
+}
