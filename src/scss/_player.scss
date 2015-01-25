@@ -24,7 +24,7 @@
 
   .app-content {
     padding-top: rem-calc(63);
-    padding-bottom: rem-calc(70);
+    padding-bottom: rem-calc(140);
   }
 }
 
@@ -50,19 +50,49 @@
     max-width: none;
   }
 
-  &.playlist-loaded {
-    height: rem-calc(70);
+  &.playlist-loaded,
+  &.track-initialised {
+    height: rem-calc(140);
 
     .player-position,
     .player-duration {
       height: rem-calc(6);
     }
+
+    .player-position-handle,
+    .player-position {
+      display: hidden;
+    }
+
+    .player-duration {
+      background-color: $grey;
+      background-image: url('/img/anim-buffer-13x13.gif');
+      background-repeat: repeat-x;
+      background-position: left top;
+      opacity: 0.5;
+    }
+
+    .player-ctrls {
+      &:link,
+      &:active,
+      &:hover,
+      &:focus,
+      &:active {
+        color: $grey;
+      }
+    }
+
+    .track-artwork,
+    .track-summary {
+      visibility: hidden;
+    }
   }
 
   // Track buffering
   &.track-buffering {
+    .player-position-handle,
     .player-position {
-      display: none;
+      visibility: hidden;
     }
 
     .player-duration {
@@ -72,6 +102,68 @@
       background-position: left top;
       opacity: 0.5;
     }
+
+    .track-artwork,
+    .track-summary {
+      visibility: visible;
+    }
+
+    .player-ctrls {
+      &:link,
+      &:visited {
+        color: $primary-color;
+      }
+
+      &:hover,
+      &:focus {
+        color: $secondary-color;
+      }
+
+      &:active {
+        color: $black;
+      }
+    }
+  }
+
+  // Track completed
+  &.track-completed {
+    .player-position-handle,
+    .player-position {
+      visibility: visible;
+    }
+
+    .player-duration {
+      background-color: $lgrey;
+      background-image: none;
+      opacity: 1;
+    }
+
+    .track-artwork,
+    .track-summary {
+      visibility: visible;
+    }
+  }
+
+  .track-loading {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: fade-out( $white, 0.1 );
+    line-height: rem-calc(40);
+    text-align: center;
+    vertical-align: middle;
+
+    .loading-hangloose {
+      display: inline-block;
+      @include widthHeight( rem-calc(40), rem-calc(40) );
+      vertical-align: middle;
+    }
+  }
+
+  &.track-buffering,
+  &.track-completed {
+    .track-loading { display: none; }
   }
 
   .player-progress {
@@ -138,22 +230,8 @@
   .player-ctrls {
     margin-top: rem-calc(6);
     font-size: rem-calc(30);
-    line-height: rem-calc(64);
+    line-height: rem-calc(50);
     vertical-align: middle;
-
-    a:link,
-    a:visited {
-      color: $grey;
-    }
-
-    a:hover,
-    a:focus {
-      color: $primary-color;
-    }
-
-    a:active {
-      color: $secondary-color;
-    }
   }
 
   .player-playpause {
@@ -174,9 +252,8 @@
   }
 
   .track {
-    //display: none;
     margin-top: rem-calc(16);
-    text-align: left;
+    text-align: center;
 
     .media-title {
       font-size: rem-calc(16);
@@ -203,6 +280,7 @@
   }
 
   .track-artwork {
+    display: none;
     @include widthHeight( rem-calc(40), rem-calc(40) );
     margin: 0 rem-calc(10) 0 0;
     line-height: rem-calc(40);
@@ -214,6 +292,10 @@
     line-height: rem-calc(40);
   }
 
+  .track-summary {
+    padding: 0;
+  }
+
   .track-info {
     position: absolute;
     right: 0;
@@ -222,8 +304,9 @@
   }
 
   .playlist {
-    text-align: right;
-    line-height: rem-calc(64);
+    font-size: rem-calc(12);
+    line-height: rem-calc(24);
+    text-align: center;
     vertical-align: middle;
   }
 
@@ -240,36 +323,35 @@
   }
 }
 
-@media #{$small-only} {
+@media #{$large-up} {
   .player {
-    &.playlist-loaded {
-      height: rem-calc(140);
+    &.playlist-loaded,
+    &.track-initialised {
+      height: rem-calc(70);
     }
 
     .track {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      margin-top: rem-calc(16);
+      text-align: left;
     }
 
-    .track-summary {
-      padding: 0;
+    .track-artwork {
+      display: block;
     }
 
     .player-ctrls {
-      line-height: rem-calc(50);
+      line-height: rem-calc(64);
     }
 
     .playlist {
-      font-size: rem-calc(12);
-      line-height: rem-calc(24);
-      text-align: center;
+      text-align: right;
+      line-height: rem-calc(64);
     }
   }
 
   .view-player {
     .app-content {
-      padding-bottom: rem-calc(140);
+      padding-bottom: rem-calc(70);
     }
   }
 }

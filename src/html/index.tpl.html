@@ -21,25 +21,28 @@
             <div class="row">
 
               <div class="track small-12 large-4 columns">
-                <div class="track-artwork hide-for-small">
+                <div class="track-loading" title="Hang loose, pal!">
+                  <div class="loading-hangloose"></div>
+                </div>
+                <div class="track-artwork">
                   <img ng-src="{{currentTrack.media.artwork}}" class="media-artwork">
                 </div>
                 <div class="track-summary">
-                  <h1 class="media-title">
+                  <h1 class="media-title" ng-attr-title="currentTrack.media.title">
                     <i class="fa fa-soundcloud media-icon"></i>
-                    <a href="#view-trackinfo" ng-bind="currentTrack.media.title"></a>
+                    <a ng-bind="currentTrack.media.title" ng-click="trackInfo($event, currentTrack, currentTrack.media)"></a>
                   </h1>
                   <h2 class="media-author">
-                    <a href="#view-trackinfo" ng-bind="currentTrack.media.author"></a>
+                    <a ng-bind="currentTrack.media.author" ng-click="trackInfo($event, currentTrack, currentTrack.media)" title="View user on SoundCloud"></a>
                   </h2>
                   <h3 class="media-src">
                     <i class="fa fa-twitter media-icon"></i>
-                    Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle" ng-click="trackInfo($event, currentTrack, currentTrack.media)"></a>
+                    Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle" ng-click="trackInfo($event, currentTrack, currentTrack.media)" class="View user on Twitter"></a>
                   </h3>
                 </div>
               </div><!-- /.track -->
 
-              <a href="#" class="player-ctrls small-12 large-4 columns">
+              <a href="#" class="player-ctrls small-12 medium-12 large-4 columns">
                 <div class="row collapse">
                   <div class="player-backward small-3 large-3 columns">
                     <i class="fa fa-step-backward" title="List to previous track: {Track name} - {Artist}" ng-click="playPrev($event)"><span class="ir">Previous Track</span></i>

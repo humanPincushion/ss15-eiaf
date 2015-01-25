@@ -202,6 +202,7 @@ html, body {
   width: rem-calc(58);
   height: rem-calc(35);
   background: transparent url('/img/hangloose-grey.svg') no-repeat center center;
+  background-size: contain;
   line-height: rem-calc(35);
 
   animation: hangloose-bro 2s linear 0 infinite;
@@ -212,6 +213,7 @@ html, body {
   width: rem-calc(58);
   height: rem-calc(35);
   background: transparent url('/img/hangloose-black.svg') no-repeat center center;
+  background-size: contain;
   line-height: rem-calc(35);
 
   animation: hangloose-bro 2s linear 0 infinite;
@@ -234,6 +236,7 @@ html, body {
   background-image: url('/img/hangloose-grey.svg');
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: contain;
   text-align: left;
   text-indent: -1000em;
 
