@@ -47,6 +47,8 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
           'key': tweet.id
         };
         
+        console.log(tweet);
+        
         // store all the urls the tweet contains.
         $.each(tweet.entities.urls, function(key, url) { 
           var allowedDomains = ['soundcloud.com'],
@@ -77,7 +79,11 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
   function fetch(filter) {
     
     var deferred = $q.defer(),      // init promise.
-        params = {q: '"#mixism"'};    // setup parameters.
+        params = {
+          q: '"#mixism"',
+          result_type: 'recent',
+          count: 50
+        };
     
     if( filter !== undefined )
       params.q += ' AND ' + filter;
