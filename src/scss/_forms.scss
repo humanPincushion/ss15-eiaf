@@ -112,17 +112,17 @@ input {
       @include placeholder {
         @media #{$small-only} {
           &::after {
-            content: ' #hashtag or @username';
+            content: ' #hashtag';
           }
         }
         @media #{$medium-only} {
           &::after {
-            content: ' by #hashtag or @username';
+            content: ' by #hashtag';
           }
         }
         @media #{$large-up} {
           &::after {
-            content: ' for music by #hashtag or @username';
+            content: ' for music by #hashtag';
           }
         }
       }

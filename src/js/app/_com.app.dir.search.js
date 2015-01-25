@@ -48,7 +48,7 @@ app.directive('mxSearch', ['$state', function($state) {
             $element.find('form').addClass( 'form-' + $attributes.mxSearchClass );
           
           if( $attributes.mxSearchVerb ) { 
-            $element.find('form').attr( 'title', $attributes.mxSearchVerb + ' by #hashtag or @username' );
+            $element.find('form').attr( 'title', $attributes.mxSearchVerb + ' by #hashtag' );
             $element.find('input:text').attr( 'placeholder', $attributes.mxSearchVerb );
             $element.find('button span').text( $attributes.mxSearchVerb );
           }
