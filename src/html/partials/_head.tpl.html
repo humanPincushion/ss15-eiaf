@@ -29,9 +29,15 @@
               <!--<span ng-cloak ng-show="title" class="playlist-title"> / <a href="/play" ng-bind="title"></a></span>-->
           </div>
         </h1>
-        <nav class="app-menu">
-          <a href="#"></a>
-          <ul>
+
+        <nav class="app-menu dropdown">
+          <a href="#" class="dropdown-toggle"><i class="icon-bars">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <span class="ir">Site Menu</span>
+          </i></a>
+          <ul class="dropdown-menu">
             <li><a href="/home" ui-sref="home">About</a></li>
             <li><a href="/explore" ui-sref="explore">Explore</a></li>
             <li><a href="#!/play" ui-sref="play">Play</a></li>
@@ -39,6 +45,10 @@
             <li><a href="#!/play/@humanPincushion" ui-sref="play.filter({filter: '@humanTestingFoundation'})">@humanTestingFoundation</a></li>
             <li><a href="#" ui-sref="play.info()">Track info</a></li>
             <li><a href="/stuff" ui-sref="stuff">Stuff</a></li>
+            <li class="divider"></li>
+            <li>Made by<br/>
+              <a href="http://www.everythingisafractal.com/" target="_blank" title="Check out our cool minimalist homepage, hu hu hu hu">Everything is a Fractal</a></li>
+            <li><a href="http://www.twitter.com/_eiaf" target="_blank" title="Follow Everything Is A Fractal on Twitter"><i class="fa fa-twitter"></i> @_eiaf</a></li>
           </ul>
         </nav>
       </header>

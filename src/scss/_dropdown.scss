@@ -1,0 +1,37 @@
+// ## dropdown
+
+.dropdown {
+  .dropdown-toggle {
+    background: transparent;
+    color: $black;
+  }
+
+  .dropdown-menu {
+    //display: none;
+    background: $white;
+    border: solid rem-calc(1) $grey;
+
+    ul,
+    li {
+      display: block;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .divider {
+      border-bottom: solid rem-calc(1) $lgrey;
+    }
+  }
+
+  .dropdown-open {
+    .dropdown-toggle {
+      background: $primary-color;
+      color: $white;
+    }
+
+    .dropdown-menu {
+      display: block;
+    }
+  }
+}
