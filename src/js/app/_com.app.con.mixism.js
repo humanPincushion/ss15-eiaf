@@ -72,6 +72,13 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     });
   });
   
+  // sync track errors back into the playlist.
+  $rootScope.$on('trackError', function() {
+    $timeout(function() {
+      $scope.currentPlaylist = playerSvc.getPlaylist();
+    }, 1);
+  });
+  
   // while a track is playing we need to keep feeding the track progress info to the progress bar.
   $rootScope.$on('timelineUpdate', function() {
     $timeout(function() {
@@ -126,8 +133,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
       media: media
     };
     
-    $scope.modal.track.htmlText = $sce.trustAsHtml( $scope.modal.track.htmlText );
-    
+    $scope.modal.track.trustedHtmlText = $sce.trustAsHtml( $scope.modal.track.htmlText );
+
     ngDialog.open({
       templateUrl: '/ng/trackinfo.tpl.html',
       scope: $scope,

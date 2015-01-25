@@ -78,6 +78,7 @@ gulp.task('app', function() {
      'src/lib/ngstorage/ngStorage.js',
      'src/lib/codebird-js/codebird.js',
      'src/lib/ngDialog/js/ngDialog.js',
+     'src/lib/angular-notify/angular-notify.js',
      'src/js/**/*.js'
    ])
     .pipe(concat('com.app.js'))
@@ -142,9 +143,15 @@ gulp.task('copy', function() {
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('dist/js/lib'));
   
+  // notify template
+  gulp.src('src/lib/angular-notify/angular-notify.html')
+    .pipe(rename({suffix: '.tpl'}))
+    .pipe(gulp.dest('src/html/angular-tpl'));
+  
   gulp.src([
       'src/lib/ngDialog/css/ngDialog.css', 
-      'src/lib/ngDialog/css/ngDialog-theme-plain.css'
+      'src/lib/ngDialog/css/ngDialog-theme-plain.css',
+      'src/lib/angular-notify/angular-notify.css'
     ])
     .pipe(rename({prefix: '_', extname: '.scss'}))
     .pipe(gulp.dest('src/scss/lib'));

@@ -10,7 +10,7 @@
  * @return {Object} Audio player service.
  */
 
-app.factory('playerSvc', ['$rootScope', function($rootScope) { 
+app.factory('playerSvc', ['$rootScope', 'notify', function($rootScope, notify) { 
   
   var hasInit = false,
       currentFilter,
@@ -100,15 +100,21 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
         opts = {
           onload: function() {
             var duration = this.duration;
+            //console.log(this);
+            
+            // 0 = uninitialised
+            // 1 = loading
+            // 2 = failed/error
+            // 3 = loaded/success
+            if (this.readyState == 2) {
+              currentPlaylist[id].error = true;
+              notify({
+                message: 'Oh noes! The stream for ' + currentPlaylist[id].media.title + ' won\'t connect!', 
+                templateUrl:'/ng/angular-notify.tpl.html'
+              });
+              $rootScope.$broadcast('trackError', true);
+            }
           },
-          /*
-          onresume: function() {
-          },
-          onstop: function() {
-          },
-          onpause: function() {
-          },
-          */
           onfinish: function() { 
             playNextTrack();
             trackTimeline = {};

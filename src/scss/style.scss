@@ -6,6 +6,11 @@
 @import 'mixins';
 @import 'typography';
 
+@import 'lib/ngDialog';
+@import 'lib/ngDialog-theme-plain';
+@import 'ngDialog-theme-mixism';
+@import 'lib/angular-notify';
+
 @import 'global';
 @import 'dropdown';
 @import 'forms';
@@ -17,7 +22,3 @@
 @import 'trackinfo';
 @import 'about';
 @import 'animation';
-
-@import 'lib/ngDialog';
-@import 'lib/ngDialog-theme-plain';
-@import 'ngDialog-theme-mixism';
