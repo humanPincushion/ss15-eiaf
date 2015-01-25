@@ -28,7 +28,7 @@
           <a href="https://twitter.com/{{modal.track.user.handle}}/status/{{modal.track.key}}" target="_blank" class="post-user">@<span ng-bind="modal.track.user.handle"></span></a> - <a href="https://twitter.com/{{modal.track.user.handle}}/status/{{modal.track.key}}" target="_blank" class="post-time" ng-bind="modal.track.created | date : 'MMM d'"></a>
         </h3>
         <div class="post-content">
-          <p ng-bind="modal.track.text"></p>
+          <p ng-bind-html="modal.track.htmlText"></p>
         </div>
       </div>
 

@@ -8,7 +8,7 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', 'socialSvc', 'ngDialog', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc, socialSvc, ngDialog) {
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', 'socialSvc', 'ngDialog', '$sce', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc, socialSvc, ngDialog, $sce) {
   
   $scope.playlist = [];
   $scope.currentPlaylist = [];
@@ -125,6 +125,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
       media: media
     };
     
+    $scope.modal.track.htmlText = $sce.trustAsHtml( $scope.modal.track.htmlText );
+    
     ngDialog.open({
       templateUrl: '/ng/trackinfo.tpl.html',
       scope: $scope,
@@ -132,5 +134,12 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
       preCloseCallback: function() { }
     });
   };
+  
+  $(document).on('click', '.social-post a.playlist', function() {
+    var filter = $(this).attr('playlist');
+    $(this).closest('.ngdialog-content').find('.btn-close').click();
+    $state.go('play.filter', {filter: filter});
+    return false;
+  });
   
 }]);
