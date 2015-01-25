@@ -1,6 +1,9 @@
 .playlist {
-  border-top: solid rem-calc(1) $lgrey;
-  margin-top: rem-calc(64);
+
+  .track-list {
+    border-top: solid rem-calc(1) $lgrey;
+    margin-top: rem-calc(64);
+  }
 
   .track {
     position: relative;
