@@ -29,12 +29,12 @@ app.controller('PlaylistCtrl', ['$scope', 'socialSvc', 'playerSvc', '$state', '$
         firstRun = false;
       }
       
-      $localStorage.playlist = $scope.playlist;
+      $localStorage.playlist = $scope.$parent.playlist;
       $scope.loading = false;
     });
   }
   
-  $rootScope.$on('filterChange', function(filter) {
+  $rootScope.$on('filterChange', function(filter) { 
     if( $state.current.name.indexOf('play') !== -1 )
       updatePlaylist( $state.params.filter );
   });

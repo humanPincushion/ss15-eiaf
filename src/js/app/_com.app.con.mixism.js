@@ -102,6 +102,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
       });
       
     } else { 
+      playerSvc.setPlaylist( $scope.currentPlaylist, $state.params.filter );
       playerSvc.playTrack(key);
     }
   };
