@@ -33,8 +33,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'ngDial
   
   ngDialogProvider.setDefaults({
     className: 'ngdialog-theme-default',
-    showClose: true,
-    closeByDocument: false,
-    closeByEscape: false
+    showClose: true
   });
 }]);
