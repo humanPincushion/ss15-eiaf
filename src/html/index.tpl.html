@@ -2,7 +2,14 @@
         <main id="content" class="app-content">
           <ui-view></ui-view>
 
-          <div class="player" ng-cloak ng-class="{'playlist-loaded': playerState}">
+          <div class="player" ng-cloak 
+            ng-class="{
+              'playlist-loaded': playerState,
+              'track-buffering': timeline.buffering,
+              'track-buffering-completed': timeline.completed,
+              'track-playing': playState,
+              'track-paused': !playState
+            }">
 
             <div class="player-progress">
               <div class="player-position" style="width: {{timeline.percentage + '%'}}"><span class="ir" ng-bind="timeline.position">0:00</span></div>
@@ -26,7 +33,7 @@
                   </h2>
                   <h3 class="media-src">
                     <i class="fa fa-twitter media-icon"></i>
-                    Posted by <a href="#view-trackinfo" ng-bind="'@' + currentTrack.user.handle"></a>
+                    Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle" ng-click="trackInfo($event, currentTrack, currentTrack.media)"></a>
                   </h3>
                 </div>
               </div><!-- /.track -->

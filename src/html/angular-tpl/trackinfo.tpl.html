@@ -24,13 +24,15 @@
 
       <div class="social-post">
         <h3 class="post-src">
-          <i class="fa fa-twitter media-icon" title="Twitter"></i><a href="#" target="_blank" class="post-user">@<span>Username</span></a> - <a href="#" target="_blank" class="post-time">Jan 20</a>
+          <i class="fa fa-twitter media-icon" title="Twitter"></i>
+          <a href="https://twitter.com/{{modal.track.user.handle}}/status/{{modal.track.key}}" target="_blank" class="post-user">@<span ng-bind="modal.track.user.handle"></span></a> - <a href="https://twitter.com/{{modal.track.user.handle}}/status/{{modal.track.key}}" target="_blank" class="post-time" ng-bind="modal.track.created | date : 'MMM d'"></a>
         </h3>
         <div class="post-content">
-          <p>The contents of the social media post go in here. <a href="#">#thisisahashtag</a> Supercalifragilisticexpialidocious right</p>
+          <p ng-bind="modal.track.text"></p>
         </div>
       </div>
 
+      <!--
       <div class="social-post">
         <h3 class="post-src">
           <i class="fa fa-twitter media-icon" title="Twitter"></i><a href="#" target="_blank" class="post-user">@<span>Username</span></a> - <a href="#" target="_blank" class="post-time">Jan 20</a>
@@ -39,33 +41,7 @@
           <p>The contents of the social media post go in here. <a href="#">#thisisahashtag</a> Supercalifragilisticexpialidocious right</p>
         </div>
       </div>
-
-      <div class="social-post">
-        <h3 class="post-src">
-          <i class="fa fa-twitter media-icon" title="Twitter"></i><a href="#" target="_blank" class="post-user">@<span>Username</span></a> - <a href="#" target="_blank" class="post-time">Jan 20</a>
-        </h3>
-        <div class="post-content">
-          <p>The contents of the social media post go in here. <a href="#">#thisisahashtag</a> Supercalifragilisticexpialidocious right</p>
-        </div>
-      </div>
-
-      <div class="social-post">
-        <h3 class="post-src">
-          <i class="fa fa-twitter media-icon" title="Twitter"></i><a href="#" target="_blank" class="post-user">@<span>Username</span></a> - <a href="#" target="_blank" class="post-time">Jan 20</a>
-        </h3>
-        <div class="post-content">
-          <p>The contents of the social media post go in here. <a href="#">#thisisahashtag</a> Supercalifragilisticexpialidocious right</p>
-        </div>
-      </div>
-
-      <div class="social-post">
-        <h3 class="post-src">
-          <i class="fa fa-twitter media-icon" title="Twitter"></i><a href="#" target="_blank" class="post-user">@<span>Username</span></a> - <a href="#" target="_blank" class="post-time">Jan 20</a>
-        </h3>
-        <div class="post-content">
-          <p>The contents of the social media post go in here. <a href="#">#thisisahashtag</a> Supercalifragilisticexpialidocious right</p>
-        </div>
-      </div>
+      -->
 
     </div>
   </div>

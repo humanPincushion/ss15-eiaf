@@ -101,10 +101,14 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
           },
           whileplaying: function() { 
             trackTimeline = {
-              duration: formatTime(this.duration),
               position: formatTime(this.position),
-              percentage: this.position / (this.duration / 100)
+              percentage: this.position / (this.duration / 100),
+              buffering: !(this.bytesLoaded >= this.bytesTotal), //this.isBuffering, <-- this sucks.
+              completed: (this.bytesLoaded >= this.bytesTotal)
             };
+            
+            if( trackTimeline.completed )
+              trackTimeline.duration = formatTime(this.duration)
             
             $rootScope.$broadcast('timelineUpdate', trackTimeline);
           }

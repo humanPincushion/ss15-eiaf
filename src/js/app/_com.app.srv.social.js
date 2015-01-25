@@ -39,6 +39,8 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
           'text': tweet.text,
           'hashtags': tweet.entities.hashtags,
           'url': '',
+          'favourites': tweet.entities.favourite_count,
+          'created': new Date(tweet.created_at),
           'user': {
             'name': tweet.user.name,
             'handle': tweet.user.screen_name,
