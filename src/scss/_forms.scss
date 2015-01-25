@@ -7,7 +7,7 @@ input {
 }
 
 .form-single-input {
-  min-width: rem-calc(300);
+  min-width: rem-calc(280);
   max-width: rem-calc(600);
   height: rem-calc(50);
   margin-left: auto;
@@ -90,35 +90,17 @@ input {
   margin-bottom: 3rem;
 }
 
+// App Search
 .app-search {
   display: inline-block;
+  margin: rem-calc(7) rem-calc(15);
+  position: absolute;
+  left: rem-calc(100);
+  top: 0;
 
   .form-search {
     display: inline-block;
     margin: 0 0 0 0.5rem;
-
-    background-color: fade-out( $white, 1 );
-    border-color: fade-out( $black, 1 );
-
-    transition: all 0.2s ease-in-out;
-
-    .button {
-      opacity: 0;
-
-      transition: all 0.2s;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: $white;
-      border-color: $black;
-      opacity: 1;
-
-      .button {
-        opacity: 1;
-      }
-    }
 
     input {
       text-align: left;
@@ -131,6 +113,52 @@ input {
           content: ' by #hashtag or @username';
         }
       }
+    }
+  }
+}
+
+@media #{$small-only} {
+
+  .form-search,
+  .form-single-input {
+    width: rem-calc(300);
+  }
+
+  .app-search {
+    left: rem-calc(5);
+    margin-left: 0;
+
+    .form-search,
+    .form-single-input {
+      width: rem-calc(280);
+      min-width: rem-calc(280);
+      max-width: rem-calc(280);
+      margin: 0;
+    }
+  }
+}
+
+.no-touch .app-search .form-search {
+  background-color: fade-out( $white, 1 );
+  border-color: fade-out( $black, 1 );
+
+  transition: all 0.2s ease-in-out;
+
+  .button {
+    opacity: 0;
+
+    transition: all 0.2s;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $white;
+    border-color: $black;
+    opacity: 1;
+
+    .button {
+      opacity: 1;
     }
   }
 }
