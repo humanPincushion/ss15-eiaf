@@ -10,8 +10,8 @@
   background: fade-out( $white, 0.8 );
 
   .trackinfo-inner {
-    width: rem-calc(300);
-    margin: 0 auto;
+    padding: rem-calc(120) 0;
+    position: relative;
     background: $white;
   }
 
@@ -23,10 +23,22 @@
     line-height: 0.8;
   }
 
+  .trackinfo-fixed {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+
   .track {
     clear: both;
     overflow: hidden;
+
+    background: $white;
     border-bottom: solid rem-calc(1) $lgrey;
+    box-shadow: 0 0 rem-calc(50) fade-out( $black, 0.9 );
 
     .track-artwork {
       display: block;
@@ -34,6 +46,11 @@
       height: rem-calc(40);
       position: relative;
       float: left;
+      line-height: rem-calc(40);
+    }
+
+    .track-status {
+      line-height: rem-calc(40);
     }
 
     .track-summary {

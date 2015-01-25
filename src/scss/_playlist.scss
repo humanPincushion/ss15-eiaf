@@ -4,7 +4,12 @@
 
   .track {
     position: relative;
+    background: $white;
     border-bottom: solid rem-calc(1) $lgrey;
+
+    &.now-playing {
+      background-color: lighten( $primary-color, 50% );
+    }
   }
 
   .track-artwork,
