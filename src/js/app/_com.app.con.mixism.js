@@ -15,6 +15,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
   $scope.currentPlaylist = [];
   $scope.title = false;
   $scope.currentTrack = [];
+  $scope.playerState = false;
+  $scope.timeline = {};
   
   function updatePlaylistTitle(filter) { 
     if(filter === undefined)
@@ -24,22 +26,38 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
   }
   
   // state params need to trigger a playlist update.
-  $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+  $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
     $rootScope.$broadcast('filterChange', toParams.filter);
     updatePlaylistTitle( toParams.filter );
+    $scope.title = toParams.filter;
   });
   
+  // when a track is playing, update the player UI.
   $rootScope.$on('trackStarted', function() {
     $scope.currentTrack = playerSvc.getCurrentTrack();
     mediaSvc.getMeta( $scope.currentTrack.urls[0] ).then(function(media) {
       $scope.currentTrack.media = media;
-      console.log( $scope.currentTrack );
+      $scope.playerState = true;
+      //console.log( $scope.currentTrack );
     });
-    
   });
   
+  // while a track is playing we need to keep feeding the track progress info to the progress bar.
+  $rootScope.$on('timelineUpdate', function() {
+    $scope.timeline = playerSvc.getTimelineInfo();
+    //console.log( $scope.timeline );
+  });
+  
+  // plays a track by playlist key.
   $scope.playTrack = function(key) {
     playerSvc.playTrack(key);
+  };
+  
+  // stops the current track and updates the player state
+  $scope.togglePause = function($event) {
+    $event.preventDefault();
+    playerSvc.togglePause();
+    $scope.playerState = !$scope.playerState;
   };
   
 }]);

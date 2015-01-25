@@ -5,11 +5,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
   // routing
   $stateProvider
     .state('home', {
-      url: '/',
+      url: '/home',
       templateUrl: '/ng/home.tpl.html'
     })
     .state('play', {
-      url: '/play',
+      url: '/',
       controller: 'PlaylistCtrl',
       templateUrl: '/ng/playlist.tpl.html'
     })
@@ -24,7 +24,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
       templateUrl: '/ng/stuff.tpl.html'
     });
 
-  $urlRouterProvider.when('/home', '/');
+  $urlRouterProvider.when('/play', '/');
   $urlRouterProvider.otherwise('/');
 
   $locationProvider
