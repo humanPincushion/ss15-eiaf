@@ -1,5 +1,5 @@
 // returns an objects length
-app.filter('objlen', function() {
+app.filter('objLen', function() {
   return function(object) { 
     var length = false;
     
