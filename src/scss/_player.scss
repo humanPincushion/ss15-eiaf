@@ -10,6 +10,11 @@
   background: linear-gradient(to bottom,  #eeeeee 0%,#fafafa 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#fafafa',GradientType=0 ); /* IE6-8 */
 
+  .app-logo,
+  .app-search {
+    visibility: visible;
+  }
+
   .app-header {
     height: rem-calc(64);
     background: $white;
@@ -168,7 +173,7 @@
   }
 
   .track {
-    display: none;
+    //display: none;
     margin-top: rem-calc(16);
     text-align: left;
 
@@ -231,5 +236,39 @@
 
   .playlist-length {
     color: $grey;
+  }
+}
+
+@media #{$small-only} {
+  .player {
+    &.playlist-loaded {
+      height: rem-calc(140);
+    }
+
+    .track {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .track-summary {
+      padding: 0;
+    }
+
+    .player-ctrls {
+      line-height: rem-calc(50);
+    }
+
+    .playlist {
+      font-size: rem-calc(12);
+      line-height: rem-calc(24);
+      text-align: center;
+    }
+  }
+
+  .view-player {
+    .app-content {
+      padding-bottom: rem-calc(140);
+    }
   }
 }

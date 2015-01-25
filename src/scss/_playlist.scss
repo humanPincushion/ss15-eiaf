@@ -1,5 +1,9 @@
 .playlist {
 
+  .playlist-name {
+    color: $grey;
+  }
+
   .track-list {
     border-top: solid rem-calc(1) $lgrey;
   }
@@ -30,7 +34,7 @@
   }
 
   .media-icon {
-    width: rem-calc(30);
+    width: rem-calc(20);
     text-align: right;
   }
 
@@ -39,6 +43,6 @@
   }
 
   .track-info {
-    @include widthHeight( rem-calc(60), rem-calc(60) );
+    @include widthHeight( rem-calc(50), rem-calc(80) );
   }
 }

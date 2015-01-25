@@ -97,6 +97,7 @@ input {
   position: absolute;
   left: rem-calc(100);
   top: 0;
+  visibility: hidden;
 
   .form-search {
     display: inline-block;
@@ -118,7 +119,6 @@ input {
 }
 
 @media #{$small-only} {
-
   .form-search,
   .form-single-input {
     width: rem-calc(300);

@@ -10,6 +10,17 @@
     }
   }
 
+  .copy-point {
+    padding-left: rem-calc(20);
+    padding-right: rem-calc(20);
+    margin-bottom: rem-calc(56);
+
+    p {
+      font-size: rem-calc(24);
+      line-height: 1.4;
+    }
+  }
+
   .supported {
     margin-left: auto;
     margin-right: auto;
@@ -57,5 +68,11 @@
   a:active {
     color: $primary-color;
     border-color: $primary-color;
+  }
+}
+
+@media #{$small-only} {
+  .page-about .copy-point p {
+    font-size: rem-calc(18);
   }
 }

@@ -56,9 +56,9 @@
   }
 
   .media-icon {
-    width: rem-calc(30);
+    width: rem-calc(24);
     display: inline-block;
-    margin-right: rem-calc(5);
+    margin-right: rem-calc(3);
   }
 
   .media-title {
@@ -67,16 +67,48 @@
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    a:link,
+    a:visited {
+      color: $black;
+    }
+
+    a:hover,
+    a:focus {
+      color: $primary-color;
+    }
   }
 
   .media-author {
+    color: $grey;
     font-size: rem-calc(14);
     font-weight: normal;
+
+    a:link,
+    a:visited {
+      color: $black;
+    }
+
+    a:hover,
+    a:focus {
+      color: $primary-color;
+    }
   }
 
   .media-src {
+    color: $grey;
     font-size: rem-calc(12);
     font-weight: normal;
+
+    a:link,
+    a:visited {
+      color: $grey;
+    }
+
+    a:hover,
+    a:focus {
+      color: $primary-color;
+    }
   }
 
   .track-summary {
@@ -86,7 +118,7 @@
 
   .track-info {
     display: block;
-    width: rem-calc(50);
+    width: rem-calc(30);
     height: 100%;
 
     position: absolute;
