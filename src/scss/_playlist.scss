@@ -9,9 +9,19 @@
     position: relative;
     background: $white;
     border-bottom: solid rem-calc(1) $lgrey;
+    cursor: pointer;
 
     &.now-playing {
       background-color: lighten( $primary-color, 50% );
+    }
+
+    &:hover,
+    &:focus {
+      background-color: lighten( $lgrey, 15% );
+    }
+
+    &:active {
+      background-color: lighten( $lgrey, 10% );
     }
   }
 

@@ -29,6 +29,20 @@
     }
   }
 
+  // Track buffering
+  &.track-buffering {
+    .player-position {
+      opacity: 0.5;
+    }
+
+    .player-duration {
+      background-color: #000;
+      background-image: url('/img/anim-buffer-6x6.gif');
+      background-repeat: repeat;
+      background-position: left top;
+    }
+  }
+
   .player-progress {
     width: 100%;
     height: rem-calc(20);
@@ -108,23 +122,23 @@
     a:active {
       color: $secondary-color;
     }
+  }
 
-    .player-playpause {
-      text-align: center;
-    }
+  .player-playpause {
+    text-align: center;
+  }
 
-    .player-backward,
-    .player-forward {
-      font-size: rem-calc(24);
-      text-align: center;
-    }
+  .player-backward,
+  .player-forward {
+    font-size: rem-calc(24);
+    text-align: center;
+  }
 
-    .player-backward {
-      text-align: right;
-    }
-    .player-forward {
-      text-align: left;
-    }
+  .player-backward {
+    text-align: right;
+  }
+  .player-forward {
+    text-align: left;
   }
 
   .track {
@@ -172,17 +186,17 @@
     text-align: right;
     line-height: rem-calc(64);
     vertical-align: middle;
+  }
 
-    .playlist-index {
-      color: $lgrey;
-    }
+  .playlist-index {
+    color: $lgrey;
+  }
 
-    .playlist-index-current {
-      color: $primary-color;
-    }
+  .playlist-index-current {
+    color: $primary-color;
+  }
 
-    .playlist-length {
-      color: $grey;
-    }
+  .playlist-length {
+    color: $grey;
   }
 }
