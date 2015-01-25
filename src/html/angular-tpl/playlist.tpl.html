@@ -4,6 +4,6 @@
   </div>
   <div mx-no-results ng-if="!loading" ng-hide="currentPlaylist | objLen"></div>
   <div class="track-list">
-    <article mx-track class="track" ng-class="{'now-playing': (currentId == key)}" ng-repeat="(key, track) in currentPlaylist track by $index" ng-show="media" ng-click="playTrack(key)"></article>
+    <article mx-track class="track" ng-class="{'now-playing': (currentId == key), 'oembed-inprog': !oembedComplete, 'oembed-complete': oembedComplete}" ng-repeat="(key, track) in currentPlaylist track by $index" ng-show="media" ng-click="playTrack(key)"></article>
   </div>
 </section>

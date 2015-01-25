@@ -18,6 +18,9 @@ app.directive('mxTrack', ['mediaSvc', 'playerSvc', function(mediaSvc, playerSvc)
   return {
     restrict: 'EA',
     templateUrl: '/ng/track.tpl.html',
+    controller: function($scope) {
+      $scope.oembedComplete = false;
+    },
     link: function($scope, $element) {
 
       var allowedDomains = ['soundcloud.com'],
@@ -28,6 +31,7 @@ app.directive('mxTrack', ['mediaSvc', 'playerSvc', function(mediaSvc, playerSvc)
       if( $.inArray( domain, allowedDomains ) !== -1 ) {
         mediaSvc.getMeta( $scope.track.url ).then(function(media) {
           $scope.media = media;
+          $scope.oembedComplete = true;
         });
       } else {
         $scope.media = false;
