@@ -18,6 +18,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $scope.playerState = false; // should the player be visible?
   $scope.playState = false; // is it playing or paused?
   $scope.timeline = {};
+  $scope.mainNavOpen = false;
   
   function updatePlaylistTitle(filter) { 
     if(filter === undefined)
