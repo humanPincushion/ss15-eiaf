@@ -32,13 +32,13 @@
   // Track buffering
   &.track-buffering {
     .player-position {
-      opacity: 0.5;
+      display: none;
     }
 
     .player-duration {
-      background-color: #000;
+      background-color: $primary-color;
       background-image: url('/img/anim-buffer-6x6.gif');
-      background-repeat: repeat;
+      background-repeat: repeat-x;
       background-position: left top;
     }
   }
