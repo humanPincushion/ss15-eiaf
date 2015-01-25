@@ -1,0 +1,157 @@
+// Player - Mobile
+.player {
+  display: block;
+  width: 100%;
+  height: rem-calc(70);
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 120;
+
+  background: fade-out( $white, 0.05 );
+  box-shadow: 0 0 rem-calc(100) fade-out( $black, 0.9 );
+
+  .player-progress {
+    width: 100%;
+    height: rem-calc(20);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &:hover {
+      .player-position,
+      .player-position-handle {
+        background-color: $secondary-color;
+      }
+    }
+  }
+
+  .player-duration {
+    width: 100%;
+    height: rem-calc(6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+
+    background: $grey;
+  }
+
+  .player-position {
+    width: 50%;
+    height: rem-calc(6);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 5;
+
+    background: $primary-color;
+  }
+
+  .player-position-handle {
+    width: rem-calc(20);
+    height: rem-calc(20);
+    margin: 0 0 0 rem-calc(-10);
+
+    position: absolute;
+    left: 50%;
+    top: rem-calc(-6);
+    z-index: 10;
+
+    background: $primary-color;
+    border: solid 3px $white;
+    border-radius: rem-calc(20);
+  }
+
+  .player-ctrls {
+    width: rem-calc(300);
+    margin-left: rem-calc(-150);
+
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 15;
+
+    font-size: rem-calc(30);
+    line-height: rem-calc(60);
+    vertical-align: middle;
+
+    a:link,
+    a:visited {
+      color: $grey;
+    }
+
+    a:hover,
+    a:focus {
+      color: $primary-color;
+    }
+
+    a:active {
+      color: $secondary-color;
+    }
+
+    .player-playpause {
+      display: inline-block;
+      text-align: center;
+      width: rem-calc(200);
+    }
+
+    .fa-pause { display: none; }
+
+    .player-backward,
+    .player-forward {
+      display: inline-block;
+      width: rem-calc(40);
+      font-size: rem-calc(24);
+      text-align: center;
+    }
+
+    .player-backward {
+      text-align: right;
+    }
+    .player-forward {
+      text-align: left;
+    }
+  }
+
+  .track {
+    width: 100%;
+    margin-top: rem-calc(8);
+
+    text-align: left;
+
+    .media-title {
+      font-size: rem-calc(16);
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .media-author {
+      display: none;
+      font-size: rem-calc(14);
+      margin: 0;
+    }
+
+    .media-src {
+      font-size: rem-calc(12);
+      margin: 0;
+    }
+  }
+
+  .track-artwork {
+    width: rem-calc(40);
+    height: rem-calc(40);
+    float: left;
+  }
+
+  .track-info {
+    position: absolute;
+    right: 0;
+    top: rem-calc(10);
+    font-size: rem-calc(36);
+  }
+}

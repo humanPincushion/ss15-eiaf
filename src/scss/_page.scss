@@ -1,0 +1,8 @@
+.page {
+  padding-bottom: rem-calc(100);
+
+  .row {
+    min-width: 0;
+    max-width: none;
+  }
+}

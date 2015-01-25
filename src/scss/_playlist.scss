@@ -1,0 +1,23 @@
+.playlist {
+  width: rem-calc(320);
+  margin: 0 auto;
+
+  .track {
+    position: relative;
+    border-bottom: solid rem-calc(1) $lgrey;
+  }
+
+  .track-artwork,
+  .media-author {
+    display: none;
+  }
+
+  .media-icon {
+    width: rem-calc(30);
+    text-align: right;
+  }
+
+  .track-summary {
+    margin-right: rem-calc(50);
+  }
+}

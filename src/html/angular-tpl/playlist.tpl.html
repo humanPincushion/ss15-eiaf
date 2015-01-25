@@ -1,4 +1,4 @@
 <section class="playlist">
-  <div class="loading" ng-if="loading">loading...</div>
+  <div class="loading" ng-if="loading"><i class="fa fa-angellist peace-out-dude"><span class="ir"></span></i></div>
   <article mx-track class="track" ng-repeat="(key, track) in currentPlaylist track by $index" ng-show="media" ng-click="playTrack(key)"></article>
 </section>

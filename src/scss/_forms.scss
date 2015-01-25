@@ -1,0 +1,79 @@
+.form-single-input {
+  min-width: rem-calc(300);
+  max-width: rem-calc(600);
+  height: rem-calc(50);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  position: relative;
+  clear: both;
+  overflow: hidden;
+
+  background: $white;
+  border: solid rem-calc(3) $black;
+  border-radius: rem-calc(50);
+  box-sizing: border-box;
+  color: $black;
+  vertical-align: top;
+
+  .indicates-required { display: none; }
+
+  input[type="text"],
+  input[type="email"] {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: rem-calc(3) rem-calc(50) rem-calc(3) rem-calc(3);
+    margin: 0;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: $black;
+    font-size: rem-calc(18);
+    line-height: rem-calc(38);
+    text-align: center;
+  }
+
+  .button {
+    display: block;
+    width: rem-calc(38);
+    min-width: 0;
+    height: rem-calc(38);
+    margin: rem-calc(3);
+    padding: 0;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    border-radius: rem-calc(38);
+    color: $white;
+    background-color: $black;
+    font-size: rem-calc(12);
+    line-height: rem-calc(38);
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+    }
+
+    &:active {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+.form-explore {
+  width: rem-calc(400);
+}
+
+.form-newsletter {
+  width: rem-calc(300);
+  margin-bottom: 3rem;
+}
