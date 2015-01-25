@@ -41,9 +41,11 @@ app.directive('mxSearch', ['$state', '$rootScope', function($state, $rootScope) 
         
         if( filter ) {
           filterStr = filter[0];
+          $state.go('play.filter', {filter: filterStr});
+        } else {
+          $state.go('play');
         }
         
-        console.log( filterStr );
         return;
       };
       

@@ -16,41 +16,41 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/lib/modernizr.min.js"></script>
   </head>
-  <body>
-    <div ng-controller="MixismCtrl" ng-class="rootClass">
-      <header class="app-header">
-        <h1>
-          <a href="/home" ui-sref="home" class="app-logo" title="The social playlist!">#mixism</a>
-          <div class="app-search">
-            <div mx-search mx-search-class="search" mx-search-verb="Search" ng-model="title"></div>
-          </div>
-        </h1>
+  <body ng-controller="MixismCtrl" ng-class="rootClass">
+    <header class="app-header">
+      <h1>
+        <a href="/home" ui-sref="home" class="app-logo" title="The social playlist!">#mixism</a>
+        <div class="app-search">
+          <div mx-search mx-search-class="search" mx-search-verb="Search" ng-model="title"></div>
+        </div>
+      </h1>
 
-        <nav class="app-menu">
-          <div class="dropdown" ng-class="{'dropdown-open': mainNavOpen}">
-            <a href="#" class="dropdown-toggle" ng-click="mainNavOpen = !mainNavOpen">
-              <i class="icon-bars">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-                <span class="ir">Site Menu</span>
-              </i>
-            </a>
-            <ul class="dropdown-menu" ng-click="mainNavOpen = false">
-              <li><a href="/home" ui-sref="home">About</a></li>
-              <li><a href="/explore" ui-sref="explore">Explore</a></li>
-              <li><a href="#!/play" ui-sref="play">Play</a></li>
-              <li><a href="#!/play/#bass" ui-sref="play.filter({filter: '#bass'})">#bass</a></li>
-              <li><a href="#!/play/@humanPincushion" ui-sref="play.filter({filter: '@humanTestingFoundation'})">@humanTestingFoundation</a></li>
-              <li><a href="#" ui-sref="play.info()">Track info</a></li>
-              <li><a href="/stuff" ui-sref="stuff">Stuff</a></li>
-              <li class="divider"></li>
-              <li class="secondary"><a href="http://www.everythingisafractal.com/" target="_blank" title="Check out our cool minimalist homepage, hu hu hu hu">
-                <label>#mixism v1.0.0 made by</label>
-                Everything is a Fractal
-              </a></li>
-              <li class="secondary"><a href="http://www.twitter.com/_eiaf" target="_blank" title="Follow Everything Is A Fractal on Twitter"><i class="fa fa-twitter"></i> @_eiaf</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+      <nav class="app-menu">
+        <div class="dropdown" ng-class="{'dropdown-open': mainNavOpen}">
+          <a href="#" class="dropdown-toggle" ng-click="mainNavOpen = !mainNavOpen">
+            <i class="icon-bars">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <span class="ir">Site Menu</span>
+            </i>
+          </a>
+          <ul class="dropdown-menu" ng-click="mainNavOpen = false">
+            <li><a href="/home" ui-sref="home">About</a></li>
+            <li><a href="/explore" ui-sref="explore">Explore</a></li>
+            <li><a href="#!/play" ui-sref="play">Play</a></li>
+            <li><a href="#!/play/#bass" ui-sref="play.filter({filter: '#bass'})">#bass</a></li>
+            <li><a href="#!/play/@humanPincushion" ui-sref="play.filter({filter: '@humanTestingFoundation'})">@humanTestingFoundation</a></li>
+            <li><a href="#" ui-sref="play.info()">Track info</a></li>
+            <li><a href="/stuff" ui-sref="stuff">Stuff</a></li>
+            <li class="divider"></li>
+            <li class="secondary"><a href="http://www.everythingisafractal.com/" target="_blank" title="Check out our cool minimalist homepage, hu hu hu hu">
+              <label>#mixism v1.0.0 made by</label>
+              Everything is a Fractal
+            </a></li>
+            <li class="secondary"><a href="http://www.twitter.com/_eiaf" target="_blank" title="Follow Everything Is A Fractal on Twitter"><i class="fa fa-twitter"></i> @_eiaf</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    
