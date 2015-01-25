@@ -14,5 +14,6 @@ var app = angular.module('app', [
   'ui.router',
   'ngResource',
   'ngStorage',
-  'ngDialog'
+  'ngDialog',
+  'cgNotify'
 ]);
