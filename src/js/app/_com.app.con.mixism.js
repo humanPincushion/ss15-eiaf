@@ -57,7 +57,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   updatePlaylistInfo();
   
   // state params need to trigger a playlist update.
-  $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
+  $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) { 
+    $('.ngdialog-content .btn-close').click();
     $rootScope.$broadcast('filterChange', toParams.filter);
     updatePlaylistTitle( toParams.filter );
   });
