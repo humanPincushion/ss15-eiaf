@@ -92,13 +92,15 @@ gulp.task('app', function() {
 // optimise images (.jpg, .png, .gif, .svg)
 gulp.task('images', function() {
   return gulp.src('src/img/**/*')
+    /*
     .pipe(imagemin({
       progressive: true,
-      optimizationLevel: 5,
+      optimizationLevel: 3,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngcrush()]
     }))
     .pipe(size())
+    */
     .pipe(gulp.dest('dist/img'));
 });
 

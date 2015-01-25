@@ -16,6 +16,7 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
       currentFilter,
       currentPlaylist = [],
       currentId,
+      currentIndex = null,
       currentStream,
       trackTimeline = {};
   
@@ -42,6 +43,18 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
       timeStr = hrs + ':' + timeStr;
 
     return timeStr;
+  }
+  
+  function findIndex(key) {
+    var index = 0;
+    $.each(currentPlaylist, function(id) {
+      if( id === key )
+        return false;
+      
+      index++;
+    });
+    
+    return index;
   }
   
   function playPrevTrack() {
@@ -83,6 +96,7 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
       init();
     
     var trackPath = currentPlaylist[id].url.replace( /https?:\/\/(www.)?soundcloud.com\/[^\/]+\//i, '' ),
+        index = findIndex(id),
         opts = {
           onload: function() {
             var duration = this.duration;
@@ -104,7 +118,8 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
               position: formatTime(this.position),
               percentage: this.position / (this.duration / 100),
               buffering: !(this.bytesLoaded >= this.bytesTotal), //this.isBuffering, <-- this sucks.
-              completed: (this.bytesLoaded >= this.bytesTotal)
+              completed: (this.bytesLoaded >= this.bytesTotal),
+              index: index
             };
             
             if( trackTimeline.completed )

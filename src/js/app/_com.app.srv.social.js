@@ -49,8 +49,6 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
           'key': tweet.id
         };
         
-        console.log(tweet);
-        
         // store all the urls the tweet contains.
         $.each(tweet.entities.urls, function(key, url) { 
           var allowedDomains = ['soundcloud.com'],
