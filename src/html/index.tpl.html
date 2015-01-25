@@ -5,8 +5,9 @@
           <div class="player" ng-cloak
             ng-class="{
               'playlist-loaded': playerState,
+              'track-initialised': timeline.init,
               'track-buffering': timeline.buffering,
-              'track-buffering-completed': timeline.completed,
+              'track-completed': timeline.completed,
               'track-playing': playState,
               'track-paused': !playState
             }">

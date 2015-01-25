@@ -114,7 +114,8 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
             trackTimeline = {};
           },
           whileplaying: function() { 
-            trackTimeline = {
+            trackTimeline = { 
+              init: true,
               position: formatTime(this.position),
               percentage: this.position / (this.duration / 100),
               buffering: !(this.bytesLoaded >= this.bytesTotal), //this.isBuffering, <-- this sucks.
