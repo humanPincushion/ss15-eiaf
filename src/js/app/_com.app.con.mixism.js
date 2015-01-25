@@ -82,7 +82,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     playerSvc.togglePause();
     $scope.playState = !$scope.playState;
     
-    $scope.currentId = ( $scope.playState ) ? playerSvc.getCurrentId() : 0 ;
+    // commenting out to stop the current list from not being highlighted when you pause.
+    //$scope.currentId = ( $scope.playState ) ? playerSvc.getCurrentId() : 0 ;
   };
   
   // track info modal.
