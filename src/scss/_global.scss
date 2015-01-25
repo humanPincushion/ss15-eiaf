@@ -197,6 +197,19 @@ table {
   margin-bottom: rem-calc(32) !important;
 }
 
-.peace-out-dude {
-  font-size: rem-calc(48);
+.hangloose {
+  display: inline-block;
+  width: rem-calc(58);
+  height: rem-calc(35);
+  background: transparent url('/img/hangloose-grey.svg') no-repeat center center;
+  line-height: rem-calc(35);
+}
+
+.loading-hangloose {
+  display: inline-block;
+  width: rem-calc(72);
+  height: rem-calc(48);
+  background-image: url('/img/anim-loading-72x48.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
 }
