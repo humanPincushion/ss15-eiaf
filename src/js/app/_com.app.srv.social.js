@@ -63,15 +63,11 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
           }
         });
         
-        //console.log(invalid, tweetObj);
-        
         // only add it if the tweet doesn't contain a duplicate url.
         if( !invalid && tweetObj.url !== '' )
           playlist[tweet.id] = tweetObj;
       }
     });
-    
-    console.log( playlist );
     
     return playlist;
   }
@@ -83,16 +79,13 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
         params = {q: '"#mixism"'};    // setup parameters.
     
     if( filter !== undefined )
-      params.q += ' AND "' + filter + '"';
-    
-    //console.log(params.q);
+      params.q += ' AND ' + filter;
     
     // request results from webservice.
     cb.__call(
       'search_tweets',
       params,
       function (response) { 
-        console.log(response);
         var filteredData = organiseTweets(response.statuses);
         deferred.resolve(filteredData);
       }

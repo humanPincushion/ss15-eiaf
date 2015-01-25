@@ -46,15 +46,11 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
   function playPrevTrack() {
     var prevId = false;
     
-    console.log( 'current', currentId );
-    
     $.each(currentPlaylist, function(key) {
-      console.log(key, currentId);
       if(key === currentId)
         return false;
       
       prevId = key;
-      
     });
     
     if(prevId)
@@ -66,14 +62,14 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
         nextId = false;
     
     $.each(currentPlaylist, function(key) {
-      if(current === true)
+      if(current === true) {
         nextId = key;
+        return false;
+      }
+      
       if(key === currentId)
         current = true;
     });
-    
-    console.log('next', nextId, currentId);
-    console.log( currentPlaylist );
     
     if(nextId)
       playTrack(nextId);
@@ -81,8 +77,6 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
   
   function playTrack(id) { 
     window.SC.streamStopAll();
-    
-    //console.log( currentPlaylist, id );
     
     if( !hasInit )
       init();
@@ -94,17 +88,13 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
           },
           /*
           onresume: function() {
-            console.log('resumed');
           },
           onstop: function() {
-            console.log('stopped);
           },
           onpause: function() {
-            console.log('paused');
           },
           */
-          onfinish: function() {
-            //console.log('complete');
+          onfinish: function() { 
             playNextTrack();
             trackTimeline = {};
           },

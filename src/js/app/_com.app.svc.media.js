@@ -31,7 +31,6 @@ app.factory('mediaSvc', ['$http', '$q', function($http, $q) {
           source: data.provider_name,
           url: url
         };
-        //console.log( data );
         deferred.resolve(media);
       },
       error: function (textStatus, err, xhr) {

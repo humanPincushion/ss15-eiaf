@@ -40,7 +40,6 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     mediaSvc.getMeta( $scope.currentTrack.url ).then(function(media) {
       $scope.currentTrack.media = media;
       $scope.playerState = true;
-      //console.log( $scope.currentTrack );
     });
   });
   
@@ -49,7 +48,6 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     $timeout(function() {
       $scope.timeline = playerSvc.getTimelineInfo();
     }, 1);
-    //console.log( $scope.timeline );
   });
   
   // plays a track by playlist key.
