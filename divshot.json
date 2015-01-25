@@ -1,6 +1,8 @@
 {
   "name": "ss15-eiaf",
   "root": "./dist/",
-  "clean_urls": true,
+  "routes": {
+    "**": "index.html"
+  },
   "error_page": "error.html"
 }
