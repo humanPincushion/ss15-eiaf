@@ -133,8 +133,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
       media: media
     };
     
-    $scope.modal.track.htmlText = $sce.trustAsHtml( $scope.modal.track.htmlText );
-    
+    $scope.modal.track.trustedHtmlText = $sce.trustAsHtml( $scope.modal.track.htmlText );
+
     ngDialog.open({
       templateUrl: '/ng/trackinfo.tpl.html',
       scope: $scope,
