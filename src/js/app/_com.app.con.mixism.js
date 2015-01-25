@@ -8,7 +8,7 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc) {
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', 'socialSvc', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc, socialSvc) {
   // includes main audio player controls.
   
   $scope.playlist = [];
@@ -52,6 +52,16 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   
   // plays a track by playlist key.
   $scope.playTrack = function(key) {
+    // if we're not in the right playlist we need to update the player service before we can play the track... 
+    if( $state.params.filter && playerSvc.getCurrentFilter() !== $state.params.filter ) {
+      // TODO: this is pretty lol. you should optimise it at some point.
+      socialSvc.getFeed( $state.params.filter ).then(function(currentPlaylist) {
+        playerSvc.setPlaylist( currentPlaylist, $state.params.filter );
+      });
+      
+    }
+    
+    // okay, now you can play it.
     playerSvc.playTrack(key);
   };
   

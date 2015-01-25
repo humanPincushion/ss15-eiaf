@@ -13,6 +13,7 @@
 app.factory('playerSvc', ['$rootScope', function($rootScope) { 
   
   var hasInit = false,
+      currentFilter,
       currentPlaylist = [],
       currentId,
       currentStream,
@@ -128,15 +129,21 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
     getPlaylist: function() {
       return currentPlaylist;
     },
-    setPlaylist: function(playlist) {
+    setPlaylist: function(playlist, filter) {
       currentPlaylist = playlist;
-      return playFirstTrack(); // return key of currently playing track.
+      currentFilter = filter;
     }, 
+    getCurrentFilter: function() {
+      return currentFilter;
+    },
     getCurrentId: function() {
       return currentId;
     },
     getCurrentTrack: function() {
       return currentPlaylist[currentId];
+    }, 
+    playFirstTrack: function(id) { 
+      return playFirstTrack(); // return key of currently playing track.
     },
     playTrack: function(id) { 
       return playTrack(id);

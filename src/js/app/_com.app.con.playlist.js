@@ -10,6 +10,8 @@
 
 app.controller('PlaylistCtrl', ['$scope', 'socialSvc', 'playerSvc', '$state', '$rootScope', '$localStorage', function($scope, socialSvc, playerSvc, $state, $rootScope, $localStorage) {
   
+  var firstRun = true;
+  
   $scope.loading = true;
   $localStorage.playlist = [];
   
@@ -20,10 +22,15 @@ app.controller('PlaylistCtrl', ['$scope', 'socialSvc', 'playerSvc', '$state', '$
     $scope.$parent.currentPlaylist = $localStorage.playlist[ filter ];
     socialSvc.getFeed(filter).then(function(currentPlaylist) {
       $scope.$parent.playlist[ filter ] = currentPlaylist;
+      $scope.$parent.currentPlaylist = currentPlaylist;
       
       // TODO: only change playlist when a track is played from outside of the current playlist.
-      $scope.$parent.currentPlaylist = currentPlaylist;
-      playerSvc.setPlaylist( currentPlaylist );
+      if( firstRun ) {
+        playerSvc.setPlaylist( currentPlaylist, filter );
+        playerSvc.playFirstTrack();
+        firstRun = false;
+      }
+      
       $localStorage.playlist = $scope.playlist;
       $scope.loading = false;
     });
