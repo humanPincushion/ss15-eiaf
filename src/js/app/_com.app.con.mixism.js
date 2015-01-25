@@ -14,34 +14,61 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $scope.currentPlaylist = [];
   $scope.title = false;
   $scope.currentTrack = [];
-  $scope.currentId = 0;
+  $scope.currentPlaylistInfo = {};
   $scope.playerState = false; // should the player be visible?
   $scope.playState = false; // is it playing or paused?
   $scope.timeline = {};
   $scope.mainNavOpen = false;
+  $scope.filterName = '#mixism';
   
+  // used as the breadcrumb in the header search input.
   function updatePlaylistTitle(filter) { 
-    if(filter === undefined)
+    if(filter === undefined) {
       return $scope.title = '';
+    }
     
-    $scope.title = false;
+    $scope.title = filter;
   }
+  
+  // used for the backlink in the player to get back to the current playlist.
+  function updatePlaylistInfo() { 
+    var filter = $state.params.filter;
+    if(filter === undefined) {
+      $scope.currentPlaylistInfo = {
+        name: '#mixism',
+        route: filter,
+        current: playerSvc.getCurrentId(),
+        total: Object.keys($scope.currentPlaylist).length
+      };
+      
+      return false;
+    }
+    
+    $scope.currentPlaylistInfo = {
+      name: filter,
+      route: filter,
+      current: playerSvc.getCurrentId(),
+      total: Object.keys($scope.currentPlaylist).length
+    };
+  }
+  
+  // init backlink.
+  updatePlaylistInfo();
   
   // state params need to trigger a playlist update.
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
     $rootScope.$broadcast('filterChange', toParams.filter);
     updatePlaylistTitle( toParams.filter );
-    $scope.title = toParams.filter;
   });
   
   // when a track is playing, update the player UI.
   $rootScope.$on('trackStarted', function() {
     $scope.currentTrack = playerSvc.getCurrentTrack();
-    $scope.currentId = playerSvc.getCurrentId();
     mediaSvc.getMeta( $scope.currentTrack.url ).then(function(media) {
       $scope.currentTrack.media = media;
       $scope.playerState = true;
       $scope.playState = true;
+      updatePlaylistInfo();
     });
   });
   
@@ -59,14 +86,19 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
       // TODO: this is pretty lol. you should optimise it at some point.
       socialSvc.getFeed( $state.params.filter ).then(function(currentPlaylist) {
         playerSvc.setPlaylist( currentPlaylist, $state.params.filter );
+        
+        // okay, now you can play it.
+        playerSvc.playTrack(key);
       });
       
+    } else { 
+      playerSvc.playTrack(key);
     }
-    
-    // okay, now you can play it.
-    playerSvc.playTrack(key);
   };
   
+  /**
+    * player control buttons.
+    */
   $scope.playPrev = function($event) { 
     $event.preventDefault();
     playerSvc.playPrev();
@@ -82,9 +114,6 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     $event.preventDefault();
     playerSvc.togglePause();
     $scope.playState = !$scope.playState;
-    
-    // commenting out to stop the current list from not being highlighted when you pause.
-    //$scope.currentId = ( $scope.playState ) ? playerSvc.getCurrentId() : 0 ;
   };
   
   // track info modal.
