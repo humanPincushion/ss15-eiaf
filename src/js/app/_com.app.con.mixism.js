@@ -33,7 +33,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   // used for the backlink in the player to get back to the current playlist.
   function updatePlaylistInfo() { 
     var filter = $state.params.filter;
-    if(filter === undefined) {
+    
+    if(filter === undefined || filter === '') {
       $scope.currentPlaylistInfo = {
         name: '#mixism',
         route: filter,
