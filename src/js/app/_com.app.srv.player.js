@@ -14,7 +14,7 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
   
   var hasInit = false,
       currentFilter,
-      currentPlaylist = [],
+      currentPlaylist = {},
       currentId,
       currentIndex = null,
       currentStream,
@@ -136,8 +136,6 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
       currentId = id;
       $rootScope.$broadcast('trackStarted', id);
     });
-    
-    // https://soundcloud.com/pegboardnerds/excision-pegboard-nerds-bring-the-madness
   }
   
   function playFirstTrack() {
