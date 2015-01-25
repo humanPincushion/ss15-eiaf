@@ -14,7 +14,7 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
   
   var hasInit = false,
       currentPlaylist = [],
-      currentId = undefined,
+      currentId,
       currentStream,
       trackTimeline = {};
   
@@ -23,7 +23,7 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
       client_id: '686201a1b89029bf9dd12f5159b269d6'
     });
     hasInit = true;
-  };
+  }
   
   function formatTime(s) {
     var ms = s % 1000;
@@ -44,18 +44,21 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
   }
   
   function playPrevTrack() {
-    var current = false,
-        nextId = false;
+    var prevId = false;
+    
+    console.log( 'current', currentId );
     
     $.each(currentPlaylist, function(key) {
-      if(current === true)
-        nextId = key;
+      console.log(key, currentId);
       if(key === currentId)
-        current = true;
+        return false;
+      
+      prevId = key;
+      
     });
     
-    if(nextId)
-      playTrack(nextId);
+    if(prevId)
+      playTrack(prevId);
   }
   
   function playNextTrack() {
@@ -69,6 +72,9 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
         current = true;
     });
     
+    console.log('next', nextId, currentId);
+    console.log( currentPlaylist );
+    
     if(nextId)
       playTrack(nextId);
   }
@@ -76,12 +82,12 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
   function playTrack(id) { 
     window.SC.streamStopAll();
     
-    console.log( currentPlaylist, id );
+    //console.log( currentPlaylist, id );
     
     if( !hasInit )
       init();
     
-    var trackPath = currentPlaylist[id].urls[0].replace( /https?:\/\/(www.)?soundcloud.com\/[^\/]+\//i, '' ),
+    var trackPath = currentPlaylist[id].url.replace( /https?:\/\/(www.)?soundcloud.com\/[^\/]+\//i, '' ),
         opts = {
           onload: function() {
             var duration = this.duration;
@@ -98,7 +104,7 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
           },
           */
           onfinish: function() {
-            console.log('complete');
+            //console.log('complete');
             playNextTrack();
             trackTimeline = {};
           },
@@ -124,22 +130,23 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
     // https://soundcloud.com/pegboardnerds/excision-pegboard-nerds-bring-the-madness
   }
   
+  function playFirstTrack() {
+    return playTrack( Object.keys(currentPlaylist)[0] );
+  }
+  
   return { 
     getPlaylist: function() {
       return currentPlaylist;
     },
     setPlaylist: function(playlist) {
       currentPlaylist = playlist;
-      return this.playFirstTrack(); // return key of currently playing track.
+      return playFirstTrack(); // return key of currently playing track.
     }, 
     getCurrentId: function() {
       return currentId;
     },
     getCurrentTrack: function() {
       return currentPlaylist[currentId];
-    },
-    playFirstTrack: function() {
-      return this.playTrack( Object.keys(currentPlaylist)[0] );
     },
     playTrack: function(id) { 
       return playTrack(id);

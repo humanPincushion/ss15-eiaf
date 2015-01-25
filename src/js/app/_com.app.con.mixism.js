@@ -37,7 +37,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $rootScope.$on('trackStarted', function() {
     $scope.currentTrack = playerSvc.getCurrentTrack();
     $scope.currentId = playerSvc.getCurrentId();
-    mediaSvc.getMeta( $scope.currentTrack.urls[0] ).then(function(media) {
+    mediaSvc.getMeta( $scope.currentTrack.url ).then(function(media) {
       $scope.currentTrack.media = media;
       $scope.playerState = true;
       //console.log( $scope.currentTrack );
@@ -57,11 +57,13 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     playerSvc.playTrack(key);
   };
   
-  $scope.playPrev = function($event) {
+  $scope.playPrev = function($event) { 
+    $event.preventDefault();
     playerSvc.playPrev();
   };
   
-  $scope.playNext = function($event) {
+  $scope.playNext = function($event) { 
+    $event.preventDefault();
     playerSvc.playNext();
   };
   

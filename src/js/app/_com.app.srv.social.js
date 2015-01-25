@@ -28,9 +28,9 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
     var playlist = {},
         urls = [];
     
-    $.each(tweets, function(key, tweet) {
+    $.each(tweets.reverse(), function(key, tweet) {
       var tweetObj = {},
-          duplicate = false;
+          invalid = false;
       
       // discard tweets which don't contain urls.
       if( tweet.entities && tweet.entities.urls.length > 0 ) {
@@ -38,7 +38,7 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
         tweetObj = {
           'text': tweet.text,
           'hashtags': tweet.entities.hashtags,
-          'urls': [],
+          'url': '',
           'user': {
             'name': tweet.user.name,
             'handle': tweet.user.screen_name,
@@ -48,19 +48,30 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
         
         // store all the urls the tweet contains.
         $.each(tweet.entities.urls, function(key, url) { 
-          if( $.inArray( url.expanded_url, urls ) !== -1 )
-            duplicate = true;
+          var allowedDomains = ['soundcloud.com'],
+            search = url.expanded_url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i),
+            domain = search && search[1];
           
-          urls.push( url.expanded_url );
-          //console.log( url.expanded_url );
-          tweetObj.urls.push( url.expanded_url );
+          // url must be based on soundcloud track.
+          if( $.inArray( domain, allowedDomains ) !== -1 ) {
+            // ignore duplicates
+            if( $.inArray( url.expanded_url, urls ) !== -1 )
+              invalid = true;
+            
+            urls.push( url.expanded_url );
+            tweetObj.url = url.expanded_url;
+          }
         });
         
+        //console.log(invalid, tweetObj);
+        
         // only add it if the tweet doesn't contain a duplicate url.
-        //if( !duplicate )
+        if( !invalid && tweetObj.url !== '' )
           playlist[tweet.id] = tweetObj;
       }
     });
+    
+    console.log( playlist );
     
     return playlist;
   }

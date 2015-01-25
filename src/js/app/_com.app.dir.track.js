@@ -21,12 +21,12 @@ app.directive('mxTrack', ['mediaSvc', 'playerSvc', function(mediaSvc, playerSvc)
     link: function($scope, $element) {
 
       var allowedDomains = ['soundcloud.com'],
-          search = $scope.track.urls[0].match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i),
+          search = $scope.track.url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i),
           domain = search && search[1];
 
       // use the media service to lookup metadata based on soundcloud url.
       if( $.inArray( domain, allowedDomains ) !== -1 ) {
-        mediaSvc.getMeta( $scope.track.urls[0] ).then(function(media) {
+        mediaSvc.getMeta( $scope.track.url ).then(function(media) {
           $scope.media = media;
         });
       } else {

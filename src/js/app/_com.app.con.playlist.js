@@ -17,7 +17,7 @@ app.controller('PlaylistCtrl', ['$scope', 'socialSvc', 'playerSvc', '$state', '$
   function updatePlaylist(filter) {
     $scope.loading = true;
     
-    console.log( $scope.$parent );
+    //console.log( $scope.$parent );
     
     $scope.$parent.currentPlaylist = $localStorage.playlist[ filter ];
     socialSvc.getFeed(filter).then(function(currentPlaylist) {
