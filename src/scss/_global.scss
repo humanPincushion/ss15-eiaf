@@ -90,24 +90,45 @@ table {
   left: 0;
   top: 0;
   z-index: 100;
+}
 
-  h1 {
-    margin: rem-calc(7) rem-calc( 15 );
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: rem-calc(24);
-    line-height: rem-calc(46);
-    vertical-align: middle;
+.app-logo {
+  margin: rem-calc(7) rem-calc(15);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: rem-calc(24);
+  line-height: rem-calc(46);
+  vertical-align: middle;
+
+  color: $black;
+  font-weight: bold;
+
+  a:link,
+  a:visited {
+    color: $black;
+  }
+}
+
+.app-search {
+  margin: rem-calc(7) rem-calc(15);
+  position: absolute;
+  left: rem-calc(100);
+  top: 0;
+}
+
+@media #{$small-only} {
+  .app-logo {
+    display: none;
   }
 
-  .app-logo {
-    color: $black;
-    font-weight: bold;
-
-    &:link,
-    &:visited {
-      color: $black;
+  .app-search {
+    .form-search,
+    .form-single-input {
+      width: rem-calc(230);
+      min-width: rem-calc(230);
+      max-width: rem-calc(230);
+      margin: 0;
     }
   }
 }

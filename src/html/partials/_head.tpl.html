@@ -18,12 +18,10 @@
   </head>
   <body ng-controller="MixismCtrl" ng-class="rootClass">
     <header class="app-header">
-      <h1>
-        <a href="/home" ui-sref="home" class="app-logo" title="The social playlist!">#mixism</a>
-        <div class="app-search">
-          <div mx-search mx-search-class="search" mx-search-verb="Search" ng-model="title"></div>
-        </div>
-      </h1>
+      <h1 class="app-logo"><a href="/home" ui-sref="home" title="The social playlist!">#mixism</a></h1>
+      <div class="app-search">
+        <div mx-search mx-search-class="search" mx-search-verb="Search" ng-model="title"></div>
+      </div>
 
       <nav class="app-menu">
         <div class="dropdown" ng-class="{'dropdown-open': mainNavOpen}">
@@ -53,4 +51,3 @@
         </div>
       </nav>
     </header>
-    

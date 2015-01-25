@@ -2,19 +2,36 @@
   //padding: rem-calc(10);
 
   .row {
+    width: 100%;
     min-width: 0;
     max-width: none;
   }
 
+  &:hover {
+    .track-status {
+      opacity: 1;
+    }
+  }
+
+  &.now-playing {
+    .track-status {
+      background-color: fade-out( $white, 1 );
+      opacity: 1;
+    }
+  }
+
+  .track-artwork {
+    @include widthHeight( rem-calc(60), rem-calc(60) );
+    margin: rem-calc(10);
+    position: relative;
+    float: left;
+    line-height: rem-calc(60);
+  }
+
   .media-artwork {
     display: block;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    height: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    vertical-align: top;
+    @include heightKeepAspect( rem-calc(60) );
+    background: $primary-color;
   }
 
   .track-status {
@@ -27,8 +44,10 @@
     top: 0;
 
     background: fade-out( $white, 0.1 );
+    border: solid rem-calc(3) $white;
+    box-sizing: border-box;
     color: $primary-color;
-    line-height: rem-calc(60);
+    line-height: rem-calc(54);
     opacity: 0;
     text-align: center;
     vertical-align: middle;
@@ -36,21 +55,8 @@
     transition: opacity 0.2s;
   }
 
-  &.now-playing,
-  &:hover {
-    .track-status {
-      opacity: 1;
-    }
-  }
-
-  .track-artwork {
-    //width: rem-calc(60);
-    //height: rem-calc(60);
-    //margin-right: rem-calc(10);
-    background: $primary-color;
-  }
-
   .media-icon {
+    width: rem-calc(30);
     display: inline-block;
     margin-right: rem-calc(5);
   }
@@ -73,6 +79,11 @@
     font-weight: normal;
   }
 
+  .track-summary {
+    padding-right: rem-calc(50);
+    box-sizing: border-box;
+  }
+
   .track-info {
     display: block;
     width: rem-calc(50);
@@ -83,8 +94,10 @@
     top: 0;
 
     color: $grey;
+    font-size: rem-calc(32);
     line-height: rem-calc(50);
     text-align: center;
+    vertical-align: middle;
 
     &:hover,
     &:focus {

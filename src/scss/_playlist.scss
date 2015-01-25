@@ -2,14 +2,12 @@
 
   .track-list {
     border-top: solid rem-calc(1) $lgrey;
-    margin-top: rem-calc(64);
   }
 
   .track {
     position: relative;
     background: $white;
     border-bottom: solid rem-calc(1) $lgrey;
-    cursor: pointer;
 
     &.now-playing {
       background-color: lighten( $primary-color, 50% );
@@ -17,7 +15,7 @@
 
     &:hover,
     &:focus {
-      background-color: lighten( $lgrey, 15% );
+      background-color: lighten( $primary-color, 55% );
     }
 
     &:active {
@@ -25,9 +23,10 @@
     }
   }
 
-  .track-artwork,
-  .media-author {
-    display: none;
+  .media-title,
+  .media-author,
+  .media-src {
+    line-height: 1.2em;
   }
 
   .media-icon {
@@ -36,6 +35,10 @@
   }
 
   .track-summary {
-    margin-right: rem-calc(50);
+    margin: rem-calc(10) 0;
+  }
+
+  .track-info {
+    @include widthHeight( rem-calc(60), rem-calc(60) );
   }
 }

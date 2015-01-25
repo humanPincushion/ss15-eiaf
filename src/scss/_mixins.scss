@@ -14,3 +14,31 @@
     @content;
   }
 }
+
+@mixin widthHeight( $width, $height ) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+  line-height: $height;
+}
+
+@mixin widthKeepAspect( $width ) {
+  width: $width;
+  min-width: $width;
+  max-width: $width;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+}
+
+@mixin heightKeepAspect( $height ) {
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+}
