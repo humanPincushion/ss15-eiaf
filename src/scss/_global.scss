@@ -121,17 +121,35 @@ table {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: rem-calc(9) 0;
     margin: 0;
 
     div {
       display: block;
-      width: rem-calc(24);
+      width: rem-calc(20);
       height: rem-calc(3);
-      margin: 0 auto rem-calc(3);
+      margin: rem-calc(3) auto;
+
+      background: $black;
+
+      transition: background-color 0.2s;
 
       &:first-child {
-        margin-top: rem-calc(3);
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $primary-color;
+
+      div {
+        background-color: $white;
       }
     }
   }
@@ -151,6 +169,12 @@ table {
     left: auto;
     right: 0;
     float: right;
+  }
+
+  .dropdown-open {
+    .dropdown-toggle .icon-bars div {
+      background-color: $white;
+    }
   }
 }
 
