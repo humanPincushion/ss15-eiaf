@@ -112,12 +112,14 @@ table {
   }
 }
 
-.app-nav {
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: rem-calc(7) rem-calc( 15 );
-  text-align: right;
+.app-menu {
+  .fa-bars {
+    display: inline-block;
+    width: rem-calc(50);
+    height: rem-calc(50);
+    font-size: rem-calc(24);
+    line-height: rem-calc(50);
+  }
 }
 
 .app-footer {

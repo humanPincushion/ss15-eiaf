@@ -1,43 +1,57 @@
 @@include('./partials/_head.tpl.html')
         <main id="content" class="app-content">
           <ui-view></ui-view>
+
           <div class="player" ng-cloak ng-class="{'playlist-loaded': playerState}">
+
             <div class="player-progress">
-              <div class="player-position" style="width: {{timeline.percentage + '%'}}"><span class="ir" ng-bind="timeline.position">1:23</span></div>
-              <div class="player-duration"><span class="ir" ng-bind="timeline.duration">3:45</span></div>
+              <div class="player-position" style="width: {{timeline.percentage + '%'}}"><span class="ir" ng-bind="timeline.position">0:00</span></div>
+              <div class="player-duration"><span class="ir" ng-bind="timeline.duration">0:00</span></div>
               <div class="player-position-handle"></div>
             </div>
-            <a href="#" class="player-ctrls">
-              <div class="player-backward">
-                <i class="fa fa-step-backward" title="List to previous track: {Track name} - {Artist}" ng-click="playPrev($event)"><span class="ir">Previous Track</span></i>
-              </div>
-              <div class="player-playpause">
-                <i class="fa fa-play" title="Play" ng-click="togglePause($event)" ng-if="!playState"><span class="ir">Play</span></i>
-                <i class="fa fa-pause" title="Pause" ng-click="togglePause($event)" ng-if="playState"><span class="ir">Pause</span></i>
-              </div>
-              <div class="player-forward">
-                <i class="fa fa-step-forward" title="List to next track: {Track name} - {Artist}" ng-click="playNext($event)"><span class="ir">Next Track</span></i>
-              </div>
-            </a>
-            <div class="track" ng-show="currentTrack.media">
-              <div class="track-artwork">
-                <img ng-src="{{currentTrack.media.artwork}}" class="media-artwork">
-              </div>
-              <div class="track-summary">
-                <h1 class="media-title">
-                  <i class="fa fa-soundcloud media-icon"></i>
-                  <a href="#" ng-bind="currentTrack.media.title"></a>
-                  <a href="#" class="track-info"><i class="fa fa-info-circle media-icon"></i></a>
-                </h1>
-                <h2 class="media-author">
-                  <a href="#" ng-bind="currentTrack.media.author"></a>
-                </h2>
-                <h3 class="media-src">
-                  <i class="fa fa-twitter media-icon"></i>
-                  Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle"></a>
-                </h3>
-              </div>
-            </div>
-          </div>
+
+            <div class="row">
+
+              <div class="track small-4 large-4 columns">
+                <div class="track-artwork">
+                  <img ng-src="{{currentTrack.media.artwork}}" class="media-artwork">
+                </div>
+                <div class="track-summary">
+                  <h1 class="media-title">
+                    <i class="fa fa-soundcloud media-icon"></i>
+                    <a href="#view-trackinfo" ng-bind="currentTrack.media.title"></a>
+                  </h1>
+                  <h2 class="media-author">
+                    <a href="#view-trackinfo" ng-bind="currentTrack.media.author"></a>
+                  </h2>
+                  <h3 class="media-src">
+                    <i class="fa fa-twitter media-icon"></i>
+                    Posted by <a href="#view-trackinfo" ng-bind="'@' + currentTrack.user.handle"></a>
+                  </h3>
+                </div>
+              </div><!-- /.track -->
+
+              <a href="#" class="player-ctrls small-4 large-4 columns">
+                <div class="row collapse">
+                  <div class="player-backward small-3 large-3 columns">
+                    <i class="fa fa-step-backward" title="List to previous track: {Track name} - {Artist}" ng-click="playPrev($event)"><span class="ir">Previous Track</span></i>
+                  </div>
+                  <div class="player-playpause small-6 large-6 columns">
+                    <i class="fa fa-play" title="Play" ng-click="togglePause($event)" ng-if="!playState"><span class="ir">Play</span></i>
+                    <i class="fa fa-pause" title="Pause" ng-click="togglePause($event)" ng-if="playState"><span class="ir">Pause</span></i>
+                  </div>
+                  <div class="player-forward small-3 large-3 columns">
+                    <i class="fa fa-step-forward" title="List to next track: {Track name} - {Artist}" ng-click="playNext($event)"><span class="ir">Next Track</span></i>
+                  </div>
+                </div><!-- /.row -->
+              </a><!-- /.player-ctrls -->
+
+              <div class="playlist small-4 large-4 columns">
+                <a href="#view-playlist" class="playlist-index"><strong class="playlist-index-current">1</strong> / <span class="playlist-length" ng-bind="currentPlaylist.length">5</span></a>
+              </div><!-- /.playlist -->
+
+            </div><!-- /.row -->
+
+          </div><!-- /.player -->
         </main>
 @@include('./partials/_foot.tpl.html')

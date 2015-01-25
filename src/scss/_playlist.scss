@@ -1,6 +1,6 @@
 .playlist {
-  width: rem-calc(320);
-  margin: 0 auto;
+  border-top: solid rem-calc(1) $lgrey;
+  margin-top: rem-calc(64);
 
   .track {
     position: relative;
