@@ -31,8 +31,8 @@
         </h1>
 
         <nav class="app-menu">
-          <div class="dropdown">
-            <a href="#" class="dropdown-toggle">
+          <div class="dropdown" ng-class="{'dropdown-open': mainNavOpen}">
+            <a href="#" class="dropdown-toggle" ng-click="mainNavOpen = !mainNavOpen">
               <i class="icon-bars">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
