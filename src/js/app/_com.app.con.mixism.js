@@ -59,14 +59,15 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
     $rootScope.$broadcast('filterChange', toParams.filter);
     updatePlaylistTitle( toParams.filter );
+    console.log('state change');
   });
   
   // when a track is playing, update the player UI.
   $rootScope.$on('trackStarted', function() {
+    $scope.playerState = true;
     $scope.currentTrack = playerSvc.getCurrentTrack();
     mediaSvc.getMeta( $scope.currentTrack.url ).then(function(media) {
       $scope.currentTrack.media = media;
-      $scope.playerState = true;
       $scope.playState = true;
       updatePlaylistInfo();
     });
@@ -80,7 +81,8 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   });
   
   // plays a track by playlist key.
-  $scope.playTrack = function(key) {
+  $scope.playTrack = function(key) { 
+    $scope.playerState = true;
     // if we're not in the right playlist we need to update the player service before we can play the track... 
     if( $state.params.filter && playerSvc.getCurrentFilter() !== $state.params.filter ) {
       // TODO: this is pretty lol. you should optimise it at some point.
