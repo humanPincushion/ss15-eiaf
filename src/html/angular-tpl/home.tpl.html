@@ -2,7 +2,13 @@
   <section id="top" class="block block-hero">
     <div class="row">
       <h1>#mixism</h1>
-      <p>The social playlist builder and player.</p>
+      <p>The social playlist!</p>
+      <form id="explore" action="/explore" method="get" class="form-single-input form-explore validate" novalidate>
+        <div class="field-single">
+          <input type="text" value="" name="q" class="required" placeholder="Search for a @person or a #hashtag">
+          <button class="button"><i class="fa fa-search"><span class="ir">Search</span></i></button>
+        </div>
+      </form>
     </div><!-- /.row -->
   </section>
 
@@ -38,6 +44,25 @@
       <h2>Where/what can I share?</h2>
       <p>At the moment as proof of concept <b>#mixism</b> will only search <strong>Twitter</strong> for shared music hosted on <strong>SoundCloud</strong>.</p>
       <p>(We're looking to support more social networks and media platforms in the near future.)</p>
+
+        <div class="supported">
+          <div class="row">
+            <div class="supported-social medium-6 large-6 columns">
+              <i class="fa fa-twitter" title="#mixism will find tracks you've posted to Twitter"><span class="ir">Twitter</span></i>
+            </div>
+            <div class="supported-platform medium-6 large-6 columns">
+              <i class="fa fa-soundcloud" title="#mixism will display and play SoundCloud tracks you've posted"><span class="ir">SoundCloud</span></i>
+            </div>
+          </div>
+          <div class="row">
+            <div class="unsupported medium-12 large-12 columns">
+              <i class="fa fa-facebook"><span class="ir">Facebook</span></i>
+              <i class="fa fa-tumblr"><span class="ir">Tumblr</span></i>
+              <i class="fa fa-youtube"><span class="ir">YouTube</span></i>
+            </div>
+          </div>
+        </div>
+
     </div><!-- /.row -->
   </section>
 
@@ -45,15 +70,14 @@
     <div class="row">
       <h2>Why would I do that?</h2>
       <p>Why not :)</p>
-      <p><del title="Currently still in dev lol">Try it out and see how you go</del>. We'd love to hear any feedback good and bad about <b>#mixism</b> if ya feeling vocal. Tweet us at <a href="http://www.twitter.com/_eiaf" target="_blank">@_eiaf</a>, yo.</p>
+      <p><a href="#top">Try it out and see how you go</a>. We'd love to hear any feedback good and bad about <b>#mixism</b> if ya feeling vocal. Tweet us at <a href="http://www.twitter.com/_eiaf" target="_blank">@_eiaf</a>, yo.</p>
       <p>If you want to stay in touch with <b>#mixism</b>'s development, sign up to our funky newsletter below!</p>
-      <form action="//everythingisafractal.us10.list-manage.com/subscribe/post?u=37daff7301bde0be050dcfb97&amp;id=e99441c60c" method="post" name="mc-embedded-subscribe-form" class="form-newsletter validate" target="_blank" novalidate>
+      <form action="//everythingisafractal.us10.list-manage.com/subscribe/post?u=37daff7301bde0be050dcfb97&amp;id=e99441c60c" method="post" name="mc-embedded-subscribe-form" class="form-single-input form-newsletter validate" target="_blank" novalidate>
         <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-        <div class="newsletter-field">
+        <div class="field-single">
           <input type="email" value="" name="EMAIL" class="required email" placeholder="Plonk yer email here, ok?">
           <input type="submit" value="OK!" name="subscribe" class="button">
         </div>
-        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
         <div style="position: absolute; left: -5000px;"><input type="text" name="b_37daff7301bde0be050dcfb97_e99441c60c" tabindex="-1" value=""></div>
       </form>
     </div><!-- /.row -->

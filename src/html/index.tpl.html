@@ -1,5 +1,5 @@
 @@include('./partials/_head.tpl.html')
-        <main id="content" class="app-content row collapse">
+        <main id="content" class="app-content">
           <ui-view></ui-view>
           <div class="player">
             <div class="player-progress">
@@ -24,14 +24,14 @@
               <div class="track-summary">
                 <h1 class="media-title">
                   <i class="fa fa-soundcloud media-icon"></i>
-                  <a href="#" ng-bind="currentTrack.media.title">Track name goes in here</a> 
+                  <a href="#" ng-bind="currentTrack.media.title">Track name goes in here</a>
                   <a href="#" class="track-info"><i class="fa fa-info-circle media-icon"></i></a>
                 </h1>
                 <h2 class="media-author">
                   <a href="#" ng-bind="currentTrack.media.author">Artist name</a>
                 </h2>
                 <h3 class="media-src">
-                  <i class="fa fa-twitter"></i> 
+                  <i class="fa fa-twitter"></i>
                   Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle">@MattLVL99</a>
                 </h3>
               </div>

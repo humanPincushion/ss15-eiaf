@@ -138,7 +138,7 @@ table {
 
   // Block - Hero
   &.block-hero {
-    height: 400px;
+    height: 80vh;//400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,53 +198,65 @@ table {
   }
 }
 
-.form-newsletter {
-  width: 294px;
-  height: 50px;
+.form-single-input {
+  min-width: rem-calc(300);
+  max-width: rem-calc(600);
+  height: rem-calc(50);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: rem-calc(42);
+  margin-bottom: 1rem;
+  position: relative;
   clear: both;
   overflow: hidden;
 
-  border: solid 3px $black;
-  border-radius: 50px;
   background: $white;
+  border: solid rem-calc(3) $black;
+  border-radius: rem-calc(50);
+  box-sizing: border-box;
   color: $black;
   vertical-align: top;
 
   .indicates-required { display: none; }
 
+  input[type="text"],
   input[type="email"] {
     display: block;
-    width: 237px;
-    height: 38px;
-    margin: 3px;
-    float: left;
+    width: 100%;
+    height: 100%;
+    padding: rem-calc(3) rem-calc(50) rem-calc(3) rem-calc(3);
+    margin: 0;
+
+    position: absolute;
+    left: 0;
+    top: 0;
 
     background: transparent;
     border: none;
     box-shadow: none;
+    box-sizing: border-box;
     color: $black;
     font-size: rem-calc(18);
-    line-height: 38px;
+    line-height: rem-calc(38);
     text-align: center;
   }
 
   .button {
     display: block;
-    width: 38px;
+    width: rem-calc(38);
     min-width: 0;
-    height: 38px;
-    margin: 3px;
+    height: rem-calc(38);
+    margin: rem-calc(3);
     padding: 0;
-    float: left;
 
-    border-radius: 38px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    border-radius: rem-calc(38);
     color: $white;
     background-color: $black;
     font-size: rem-calc(12);
-    line-height: 38px;
+    line-height: rem-calc(38);
 
     &:hover,
     &:focus {
@@ -255,6 +267,15 @@ table {
       background-color: $secondary-color;
     }
   }
+}
+
+.form-explore {
+  width: rem-calc(400);
+}
+
+.form-newsletter {
+  width: rem-calc(300);
+  margin-bottom: 3rem;
 }
 
 .twitter-tweet {
@@ -508,7 +529,7 @@ table {
   bottom: 0;
   z-index: 120;
 
-  background: $white;
+  background: fade-out( $white, 0.05 );
   box-shadow: 0 0 rem-calc(100) fade-out( $black, 0.9 );
 
   .player-progress {
@@ -656,12 +677,12 @@ table {
 }
 
 .playlist {
-  width: 320px;
+  width: rem-calc(320);
   margin: 0 auto;
 
   .track {
     position: relative;
-    border-bottom: solid 1px $lgrey;
+    border-bottom: solid rem-calc(1) $lgrey;
   }
 
   .track-artwork,
@@ -675,7 +696,7 @@ table {
   }
 
   .track-summary {
-    margin-right: 50px;
+    margin-right: rem-calc(50);
   }
 }
 
@@ -688,7 +709,7 @@ table {
   z-index: 110;
   overflow: auto;
 
-  background: fade( $white, 80% );
+  background: fade-out( $white, 0.8 );
 
   .trackinfo-inner {
     width: rem-calc(300);
@@ -707,7 +728,7 @@ table {
   .track {
     clear: both;
     overflow: hidden;
-    border-bottom: solid 1px $lgrey;
+    border-bottom: solid rem-calc(1) $lgrey;
 
     .track-artwork {
       display: block;
@@ -728,7 +749,7 @@ table {
   }
 
   .social-post {
-    border-bottom: solid 1px $lgrey;
+    border-bottom: solid rem-calc(1) $lgrey;
     padding: rem-calc(10);
 
     .post-src {

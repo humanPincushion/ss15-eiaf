@@ -1,5 +1,26 @@
 .page-about {
 
+  .supported {
+    margin-left: auto;
+    margin-right: auto;
+
+    i {
+      margin-left: rem-calc(5);
+      margin-right: rem-calc(5);
+    }
+  }
+
+  .supported-social,
+  .supported-platform {
+    font-size: rem-calc(36);
+    text-align: center;
+  }
+
+  .unsupported {
+    color: $lgrey;
+    font-size: rem-calc(24);
+    text-align: center;
+  }
 }
 
 #credits {
@@ -9,7 +30,7 @@
   a:link,
   a:visited {
     color: $grey;
-    border-bottom: solid 1px $lgrey;
+    border-bottom: solid rem-calc(1) $lgrey;
   }
 
   a:hover,
