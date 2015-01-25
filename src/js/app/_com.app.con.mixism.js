@@ -24,18 +24,14 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     if(filter === undefined)
       return $scope.title = '';
     
-    $scope.title = filter;
+    $scope.title = false;
   }
-  
-  if( $state.current.name.indexOf('play') !== -1 )
   
   // state params need to trigger a playlist update.
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams) {
     $rootScope.$broadcast('filterChange', toParams.filter);
     updatePlaylistTitle( toParams.filter );
     $scope.title = toParams.filter;
-    
-    console.log(toState);
   });
   
   // when a track is playing, update the player UI.
