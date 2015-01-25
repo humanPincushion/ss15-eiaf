@@ -1,5 +1,10 @@
 .track {
-  padding: rem-calc(10);
+  //padding: rem-calc(10);
+
+  .row {
+    min-width: 0;
+    max-width: none;
+  }
 
   .media-artwork {
     display: block;
@@ -39,9 +44,9 @@
   }
 
   .track-artwork {
-    width: rem-calc(60);
-    height: rem-calc(60);
-    margin-right: rem-calc(10);
+    //width: rem-calc(60);
+    //height: rem-calc(60);
+    //margin-right: rem-calc(10);
     background: $primary-color;
   }
 
