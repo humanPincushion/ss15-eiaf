@@ -8,16 +8,15 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', 'socialSvc', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc, socialSvc) {
-  
-  var playState = false;
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', 'socialSvc', 'ngDialog', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc, socialSvc, ngDialog) {
   
   $scope.playlist = [];
   $scope.currentPlaylist = [];
   $scope.title = false;
   $scope.currentTrack = [];
   $scope.currentId = 0;
-  $scope.playerState = false;
+  $scope.playerState = false; // should the player be visible?
+  $scope.playState = false; // is it playing or paused?
   $scope.timeline = {};
   
   function updatePlaylistTitle(filter) { 
@@ -41,7 +40,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     mediaSvc.getMeta( $scope.currentTrack.url ).then(function(media) {
       $scope.currentTrack.media = media;
       $scope.playerState = true;
-      playState = true;
+      $scope.playState = true;
     });
   });
   
@@ -81,22 +80,26 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
   $scope.togglePause = function($event) {
     $event.preventDefault();
     playerSvc.togglePause();
-    playState = !playState;
+    $scope.playState = !$scope.playState;
     
-    $scope.currentId = ( playState ) ? playerSvc.getCurrentId() : 0 ;
+    $scope.currentId = ( $scope.playState ) ? playerSvc.getCurrentId() : 0 ;
   };
   
   // track info modal.
-  /*
-  $scope.moreInfo = function () {
+  $scope.trackInfo = function($event, track, media) { 
+    $event.preventDefault();
+    
+    $scope.modal = {
+      track: track,
+      media: media
+    };
+    
     ngDialog.open({
       templateUrl: '/ng/trackinfo.tpl.html',
-      controller: 'SendFriendCtrl',
       scope: $scope,
       className: 'ngdialog-theme-default ngdialog-theme-mixism',
       preCloseCallback: function() { }
     });
   };
-  */
   
 }]);

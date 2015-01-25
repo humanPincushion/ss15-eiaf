@@ -1,18 +1,22 @@
 <div class="trackinfo">
   <div class="trackinfo-inner">
-    <a href="#" class="btn-close">&times;</a>
+    <a href="#" class="btn-close" ng-click="closeThisDialog()">&times;</a>
 
     <div class="track">
       <div class="track-artwork">
-        <img src="" class="media-artwork" alt="">
+        <img ng-src="{{modal.media.artwork}}" class="media-artwork" ng-alt="modal.media.title">
         <div class="track-status">
-          <i class="fa fa-play"><span class="ir">Play</span></i>
+          <i class="fa fa-play" ng-click="playTrack(modal.track.key)">
+            <span class="ir">Play</span>
+          </i>
         </div>
       </div>
       <div class="track-summary">
-        <h1 class="media-title"><span>The track name goes here</span></h1>
-        <h2 class="media-author"><a href="#"><span>Artist name</span></a></h2>
-        <a href="#" target="_blank" class="media-src"><i class="fa fa-soundcloud media-icon" title="SoundCloud"></i> View on SoundCloud</a>
+        <h1 class="media-title"><span ng-bind="modal.media.title"></span></h1>
+        <h2 class="media-author">
+          <a href="{{modal.media.authorUrl}}" target="_blank"><span ng-bind="modal.media.author"></span></a>
+        </h2>
+        <a href="{{modal.media.authorUrl}}" target="_blank" class="media-src"><i class="fa fa-soundcloud media-icon" title="SoundCloud"></i> View on SoundCloud</a>
       </div>
     </div>
 

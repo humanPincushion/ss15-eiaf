@@ -56,16 +56,14 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./dist'))
     .pipe(connect.reload());
   
-  gulp.src('./src/html/angular-tpl/**/*.tpl.html')
+  gulp.src('./src/html/angular-tpl/**/*.tpl.html') 
+    .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('./dist/ng'));
 });
 
 // compile stylesheet.
 gulp.task('sass', function () {
- return gulp.src([
-      'src/scss/lib/*.scss',
-      'src/scss/**/*.scss'
-    ])
+ return gulp.src('src/scss/**/*.scss')
     .pipe(sass())
     .pipe(concat('style.css'))
     .pipe(prefix('last 2 versions', '> 1%'))
@@ -79,7 +77,6 @@ gulp.task('app', function() {
  return gulp.src([
      'src/lib/ngstorage/ngStorage.js',
      'src/lib/codebird-js/codebird.js',
-     'src/lib/angular-audio/app/angular.audio.js',
      'src/lib/ngDialog/js/ngDialog.js',
      'src/js/**/*.js'
    ])

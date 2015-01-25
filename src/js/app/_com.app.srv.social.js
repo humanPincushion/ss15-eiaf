@@ -43,7 +43,8 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
             'name': tweet.user.name,
             'handle': tweet.user.screen_name,
             'avatar': tweet.user.profile_image_url
-          }
+          },
+          'key': tweet.id
         };
         
         // store all the urls the tweet contains.

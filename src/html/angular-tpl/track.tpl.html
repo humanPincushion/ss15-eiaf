@@ -5,7 +5,15 @@
   </div>
 </div>
 <div class="track-summary">
-  <h1 class="media-title" ng-attr-title="media.title"><i class="fa fa-soundcloud media-icon" title="SoundCloud"></i><span ng-bind="media.title"></span> <a ng-click="trackInfo(media)" title="View track info" class="track-info"><i class="fa fa-info-circle"><span class="ir">Track info</span></i></a></h1>
+  <h1 class="media-title" ng-attr-title="media.title">
+    <i class="fa fa-soundcloud media-icon" title="SoundCloud"></i>
+    <span ng-bind="media.title"></span> 
+    <a ng-click="trackInfo($event, track, media)" title="View track info" class="track-info">
+      <i class="fa fa-info-circle">
+        <span class="ir">Track info</span>
+      </i>
+    </a>
+  </h1>
   <h2 class="media-author" ng-attr-title="media.author"><a ng-href="{{media.authorUrl}}"><span ng-bind="media.author"></span></a></h2>
   <h3 class="media-src">
     <i class="fa fa-twitter media-icon" title="Twitter"></i>Posted by <a href="https://twitter.com/{{track.user.handle}}" target="_blank">@<span ng-bind="track.user.handle"></span></a>

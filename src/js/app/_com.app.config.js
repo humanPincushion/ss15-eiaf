@@ -1,6 +1,6 @@
 'use strict';
 
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 'ngDialogProvider', function($stateProvider, $urlRouterProvider, $locationProvider, ngDialogProvider) {
 
   // routing
   $stateProvider
@@ -30,5 +30,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
   $locationProvider
     .html5Mode(true)
     .hashPrefix('!');
-
+  
+  ngDialogProvider.setDefaults({
+    className: 'ngdialog-theme-default',
+    showClose: true,
+    closeByDocument: false,
+    closeByEscape: false
+  });
 }]);
