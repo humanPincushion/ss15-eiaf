@@ -8,13 +8,14 @@
  * Root controller of the app
  */
 
-app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state', 'playerSvc', 'mediaSvc', function($scope, $localStorage, $rootScope, $state, playerSvc, mediaSvc) {
+app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope', '$state', 'playerSvc', 'mediaSvc', function($scope, $localStorage, $timeout, $rootScope, $state, playerSvc, mediaSvc) {
   // includes main audio player controls.
   
   $scope.playlist = [];
   $scope.currentPlaylist = [];
   $scope.title = false;
   $scope.currentTrack = [];
+  $scope.currentId = 0;
   $scope.playerState = false;
   $scope.timeline = {};
   
@@ -35,6 +36,7 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
   // when a track is playing, update the player UI.
   $rootScope.$on('trackStarted', function() {
     $scope.currentTrack = playerSvc.getCurrentTrack();
+    $scope.currentId = playerSvc.getCurrentId();
     mediaSvc.getMeta( $scope.currentTrack.urls[0] ).then(function(media) {
       $scope.currentTrack.media = media;
       $scope.playerState = true;
@@ -44,7 +46,9 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
   
   // while a track is playing we need to keep feeding the track progress info to the progress bar.
   $rootScope.$on('timelineUpdate', function() {
-    $scope.timeline = playerSvc.getTimelineInfo();
+    $timeout(function() {
+      $scope.timeline = playerSvc.getTimelineInfo();
+    }, 1);
     //console.log( $scope.timeline );
   });
   
@@ -53,11 +57,21 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$rootScope', '$state',
     playerSvc.playTrack(key);
   };
   
+  $scope.playPrev = function($event) {
+    playerSvc.playPrev();
+  };
+  
+  $scope.playNext = function($event) {
+    playerSvc.playNext();
+  };
+  
   // stops the current track and updates the player state
   $scope.togglePause = function($event) {
     $event.preventDefault();
     playerSvc.togglePause();
     $scope.playerState = !$scope.playerState;
+    
+    $scope.currentId = ( $scope.playerState ) ? playerSvc.getCurrentId() : 0 ;
   };
   
 }]);

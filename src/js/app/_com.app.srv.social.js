@@ -28,7 +28,7 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
     var playlist = {},
         urls = [];
     
-    $.each(tweets.reverse(), function(key, tweet) {
+    $.each(tweets, function(key, tweet) {
       var tweetObj = {},
           duplicate = false;
       
@@ -57,7 +57,7 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
         });
         
         // only add it if the tweet doesn't contain a duplicate url.
-        if( !duplicate )
+        //if( !duplicate )
           playlist[tweet.id] = tweetObj;
       }
     });
@@ -69,10 +69,10 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
   function fetch(filter) {
     
     var deferred = $q.defer(),      // init promise.
-        params = {q: '#mixism'};    // setup parameters.
+        params = {q: '"#mixism"'};    // setup parameters.
     
     if( filter !== undefined )
-      params.q += ' AND ' + filter;
+      params.q += ' AND "' + filter + '"';
     
     //console.log(params.q);
     
@@ -81,7 +81,7 @@ app.factory('socialSvc', ['$http', '$q', function($http, $q) {
       'search_tweets',
       params,
       function (response) { 
-        //console.log(response);
+        console.log(response);
         var filteredData = organiseTweets(response.statuses);
         deferred.resolve(filteredData);
       }

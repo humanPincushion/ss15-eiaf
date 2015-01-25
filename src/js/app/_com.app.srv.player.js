@@ -43,6 +43,21 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
     return timeStr;
   }
   
+  function playPrevTrack() {
+    var current = false,
+        nextId = false;
+    
+    $.each(currentPlaylist, function(key) {
+      if(current === true)
+        nextId = key;
+      if(key === currentId)
+        current = true;
+    });
+    
+    if(nextId)
+      playTrack(nextId);
+  }
+  
   function playNextTrack() {
     var current = false,
         nextId = false;
@@ -117,6 +132,9 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
       currentPlaylist = playlist;
       return this.playFirstTrack(); // return key of currently playing track.
     }, 
+    getCurrentId: function() {
+      return currentId;
+    },
     getCurrentTrack: function() {
       return currentPlaylist[currentId];
     },
@@ -125,6 +143,12 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
     },
     playTrack: function(id) { 
       return playTrack(id);
+    }, 
+    playPrev: function() {
+      playPrevTrack();
+    }, 
+    playNext: function() {
+      playNextTrack();
     }, 
     togglePause: function() {
       currentStream.togglePause();

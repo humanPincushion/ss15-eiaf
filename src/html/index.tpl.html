@@ -3,20 +3,20 @@
           <ui-view></ui-view>
           <div class="player" ng-cloak>
             <div class="player-progress">
-              <div class="player-position"><span class="ir" ng-bind="timeline.position">1:23</span></div>
+              <div class="player-position" style="width: {{timeline.percentage + '%'}}"><span class="ir" ng-bind="timeline.position">1:23</span></div>
               <div class="player-duration"><span class="ir" ng-bind="timeline.duration">3:45</span></div>
               <div class="player-position-handle"></div>
             </div>
             <a href="#" class="player-ctrls">
               <div class="player-backward">
-                <i class="fa fa-step-backward" title="List to previous track: {Track name} - {Artist}"><span class="ir">Previous Track</span></i>
+                <i class="fa fa-step-backward" title="List to previous track: {Track name} - {Artist}" ng-click="playNext($event)"><span class="ir">Previous Track</span></i>
               </div>
               <div class="player-playpause">
                 <i class="fa fa-play" title="Play" ng-click="togglePause($event)" ng-if="!playerState"><span class="ir">Play</span></i>
                 <i class="fa fa-pause" title="Pause" ng-click="togglePause($event)" ng-if="playerState"><span class="ir">Pause</span></i>
               </div>
               <div class="player-forward">
-                <i class="fa fa-step-forward" title="List to next track: {Track name} - {Artist}"><span class="ir">Next Track</span></i>
+                <i class="fa fa-step-forward" title="List to next track: {Track name} - {Artist}" ng-click="playNext($event)"><span class="ir">Next Track</span></i>
               </div>
             </a>
             <div class="track" ng-show="currentTrack.media">
@@ -26,15 +26,15 @@
               <div class="track-summary">
                 <h1 class="media-title">
                   <i class="fa fa-soundcloud media-icon"></i>
-                  <a href="#" ng-bind="currentTrack.media.title">Track name goes in here</a> 
+                  <a href="#" ng-bind="currentTrack.media.title"></a> 
                   <a href="#" class="track-info"><i class="fa fa-info-circle media-icon"></i></a>
                 </h1>
                 <h2 class="media-author">
-                  <a href="#" ng-bind="currentTrack.media.author">Artist name</a>
+                  <a href="#" ng-bind="currentTrack.media.author"></a>
                 </h2>
                 <h3 class="media-src">
                   <i class="fa fa-twitter"></i> 
-                  Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle">@MattLVL99</a>
+                  Posted by <a href="#" ng-bind="'@' + currentTrack.user.handle"></a>
                 </h3>
               </div>
             </div>
