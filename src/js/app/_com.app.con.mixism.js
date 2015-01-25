@@ -72,6 +72,13 @@ app.controller('MixismCtrl', ['$scope', '$localStorage', '$timeout', '$rootScope
     });
   });
   
+  // sync track errors back into the playlist.
+  $rootScope.$on('trackError', function() {
+    $timeout(function() {
+      $scope.currentPlaylist = playerSvc.getPlaylist();
+    }, 1);
+  });
+  
   // while a track is playing we need to keep feeding the track progress info to the progress bar.
   $rootScope.$on('timelineUpdate', function() {
     $timeout(function() {

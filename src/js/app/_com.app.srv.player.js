@@ -100,15 +100,17 @@ app.factory('playerSvc', ['$rootScope', function($rootScope) {
         opts = {
           onload: function() {
             var duration = this.duration;
+            //console.log(this);
+            
+            // 0 = uninitialised
+            // 1 = loading
+            // 2 = failed/error
+            // 3 = loaded/success
+            if (this.readyState == 2) {
+              currentPlaylist[id].error = true;
+              $rootScope.$broadcast('trackError', true);
+            }
           },
-          /*
-          onresume: function() {
-          },
-          onstop: function() {
-          },
-          onpause: function() {
-          },
-          */
           onfinish: function() { 
             playNextTrack();
             trackTimeline = {};
